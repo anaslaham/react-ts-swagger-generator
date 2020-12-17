@@ -1,0 +1,17 @@
+{
+  "name": "react-ts-swagger-generator",
+  "version": "1.0.0",
+  "description": "a cli that generates ts interface and a react context from a swagger json file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "code",
+    "generator",
+    "js"
+  ],
+  "author": "Anas Laham",
+  "license": "SEE LICENSE IN LICENSE"
+}
