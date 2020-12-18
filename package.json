@@ -24,6 +24,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "is-my-json-valid": "^2.20.5",
+    "prettier": "^2.2.1",
     "swagger-schema-official": "^2.0.0-bab6bed"
   },
   "devDependencies": {
