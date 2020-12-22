@@ -23,7 +23,9 @@
   "author": "Anas Laham",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
+    "handlebars": "^4.7.6",
     "is-my-json-valid": "^2.20.5",
+    "lodash": "^4.17.20",
     "prettier": "^2.2.1",
     "swagger-schema-official": "^2.0.0-bab6bed"
   },

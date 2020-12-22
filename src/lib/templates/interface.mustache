@@ -1,0 +1,11 @@
+{{#modelTypes}}
+{{#dependences}}
+import { {{.}} } from "../{{.}}"
+{{/dependences}}
+{{#description}}
+/**
+ * {{.}}
+ */
+{{/description}}
+export {{typeIdentifier}} {{name}} {{content}}
+{{/modelTypes}}
