@@ -2,10 +2,10 @@
 {{#dependences}}
 import { {{.}} } from "../{{.}}"
 {{/dependences}}
-{{#description}}
-/**
- * {{.}}
- */
-{{/description}}
+{{#if description}}
+/*
+{{description}}
+*/
+{{/if}}
 export {{typeIdentifier}} {{name}} {{content}}
 {{/modelTypes}}

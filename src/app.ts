@@ -25,14 +25,14 @@ const { info, paths, servers, components } = schema;
 const componentsMap = createComponentsMap(components);
 const schemasMap = filterComponentsMap(componentsMap, "schemas");
 
-schemasMap.forEach((schema, index) => {
+schemasMap.forEach((schema) => {
   const content = interfaceTemplate({
     modelTypes: getModelType(schema),
   });
   createFile(
     `output/interfaces/${getModelType(schema).name}`,
     `/index.ts`,
-    format(content, prettierConfig)
+    content
   );
   resetDependences();
 });

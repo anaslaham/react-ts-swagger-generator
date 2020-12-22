@@ -22,8 +22,6 @@ export const getModelType = (typeInfo) => {
     description,
     dependences,
   } = getTypeData(typeInfo);
-  console.log(originalName, dependences);
-
   if (config.generateUnionEnums && typeIdentifier === "enum") {
     typeIdentifier = "type";
   }

@@ -70,7 +70,6 @@ export const getType = (schema) => {
   const refTypeInfo = getRefType(schema);
 
   if (refTypeInfo) {
-    console.log(schema, checkAndRenameModelName(refTypeInfo.typeName));
     dependences.push(
       checkAndAddNull(schema, checkAndRenameModelName(refTypeInfo.typeName))
     );
@@ -280,7 +279,6 @@ export const parseSchema = (rawSchema, typeName, formattersMap?: any) => {
     schemaType = getInternalSchemaType(fixedRawSchema);
     parsedSchema = schemaParsers[schemaType](fixedRawSchema, typeName);
   }
-  console.log("alldeps", _.uniq(dependences));
   return {
     ...((formattersMap &&
       formattersMap[schemaType] &&
