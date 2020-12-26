@@ -1,8 +1,8 @@
 import fs from "fs";
-import { createFile } from "./lib/files/files";
-import { getTemplate } from "./lib/templates/getTemplates";
+import { createFile } from "./lib/core/files";
+import { getTemplate } from "./lib/core/templates/getTemplates";
 import { createComponentsMap, filterComponentsMap } from "./lib/interfaces";
-import { addToConfig } from "./lib/interfaces/config";
+import { addToConfig } from "./lib/core/config";
 import { getModelType } from "./lib/interfaces/modelTypes";
 import { format } from "prettier";
 import { resetDependences } from "./lib/interfaces/schema";

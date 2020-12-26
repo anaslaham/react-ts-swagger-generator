@@ -2,7 +2,7 @@ import _ from "lodash";
 import { formatters } from "./typeFormatters";
 import { checkAndRenameModelName } from "./modelNames";
 import { formatDescription } from "./common";
-import { config } from "./config";
+import { config } from "../core/config";
 import { getTypeData } from "./index";
 
 const CONTENT_KEYWORD = "__CONTENT__";

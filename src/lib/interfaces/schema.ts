@@ -3,7 +3,7 @@ import { inlineExtraFormatters } from "./typeFormatters";
 import { isValidName, checkAndRenameModelName } from "./modelNames";
 import { formatDescription, toInternalCase } from "./common";
 import { DEFAULT_PRIMITIVE_TYPE } from "./constants";
-import { config } from "./config";
+import { config } from "../core/config";
 const types = {
   /** { type: "integer" } -> { type: "number" } */
   integer: "number",

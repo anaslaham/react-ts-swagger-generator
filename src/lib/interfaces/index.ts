@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { addToConfig } from "./config";
+import { addToConfig } from "../core/config";
 import { parseSchema } from "./schema";
 interface IComponentsMap {
   typeName: string;
