@@ -1,7 +1,7 @@
 import _ from "lodash";
 import { formatters } from "./typeFormatters";
 import { checkAndRenameModelName } from "./modelNames";
-import { formatDescription } from "./common";
+import { formatDescription } from "../core/common";
 import { config } from "../core/config";
 import { getTypeData } from "./index";
 
