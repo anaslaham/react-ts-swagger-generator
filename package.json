@@ -23,6 +23,7 @@
   "author": "Anas Laham",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
+    "axios": "^0.21.1",
     "handlebars": "^4.7.6",
     "is-my-json-valid": "^2.20.5",
     "lodash": "^4.17.20",
