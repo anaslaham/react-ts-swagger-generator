@@ -1,9 +1,9 @@
 import _ from "lodash";
-import { inlineExtraFormatters } from "./typeFormatters";
-import { isValidName, checkAndRenameModelName } from "./modelNames";
-import { formatDescription, toInternalCase } from "../core/common";
-import { DEFAULT_PRIMITIVE_TYPE } from "./constants";
-import { config } from "../core/config";
+import { inlineExtraFormatters } from "../typeFormatters";
+import { isValidName, checkAndRenameModelName } from "../modelNames";
+import { formatDescription, toInternalCase } from "../common";
+import { DEFAULT_PRIMITIVE_TYPE } from "../constants";
+import { config } from "../config";
 const types = {
   /** { type: "integer" } -> { type: "number" } */
   integer: "number",

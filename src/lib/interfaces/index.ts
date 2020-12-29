@@ -1,6 +1,6 @@
 import _ from "lodash";
 import { addToConfig } from "../core/config";
-import { parseSchema } from "./schema";
+import { parseSchema } from "../core/schema";
 interface IComponentsMap {
   typeName: string;
   componentName: string;

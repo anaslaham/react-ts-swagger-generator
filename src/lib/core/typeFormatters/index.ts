@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { config } from "../core/config";
+import { config } from "../config";
 
 export const formatters = {
   enum: (content) =>

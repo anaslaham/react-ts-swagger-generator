@@ -3,9 +3,9 @@ import { createFile } from "./lib/core/files";
 import { getTemplate } from "./lib/core/templates/getTemplates";
 import { createComponentsMap, filterComponentsMap } from "./lib/interfaces";
 import { addToConfig } from "./lib/core/config";
-import { getModelType } from "./lib/interfaces/modelTypes";
+import { getModelType } from "./lib/core/modelTypes";
 import { format } from "prettier";
-import { resetDependences } from "./lib/interfaces/schema";
+import { resetDependences } from "./lib/core/schema";
 const file = fs.readFileSync(`${__dirname}/test/test-api.json`, {
   encoding: "utf8",
 });
@@ -32,7 +32,7 @@ schemasMap.forEach((schema) => {
   createFile(
     `output/interfaces/${getModelType(schema).name}`,
     `/index.ts`,
-    content
+    format(content, prettierConfig)
   );
   resetDependences();
 });
