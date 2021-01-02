@@ -1,0 +1,2055 @@
+{
+  "outOfModule": [],
+  "combined": [
+    {
+      "moduleName": "AnestheticConsultation",
+      "objName": "anestheticConsultation",
+      "routes": [
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number }",
+          "bodyType": null,
+          "name": "servicesAppAnestheticConsultationGetAllList",
+          "pascalName": "ServicesAppAnestheticConsultationGetAllList",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name servicesAppAnestheticConsultationGetAllList",
+            "@summary Get a list of Anesthetic Consultations for specific Patient Case",
+            "@request GET:/api/services/app/AnestheticConsultation/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/AnestheticConsultation/GetAll",
+          "returnType": "ConsultationDtoPagedResultDto",
+          "dependences": ["ConsultationDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppAnestheticConsultationGetList",
+          "pascalName": "ServicesAppAnestheticConsultationGetList",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name servicesAppAnestheticConsultationGetList",
+            "@summary Get Consultation of type \"Anesthetic\" by id.",
+            "@request GET:/api/services/app/AnestheticConsultation/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/AnestheticConsultation/Get",
+          "returnType": "AnestheticConsultationDto",
+          "dependences": ["AnestheticConsultationDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateAnestheticInputDto",
+          "name": "servicesAppAnestheticConsultationCreateCreate",
+          "pascalName": "ServicesAppAnestheticConsultationCreateCreate",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name servicesAppAnestheticConsultationCreateCreate",
+            "@summary Create Consultation of type \"Anesthetic\" for a Patient Case.",
+            "@request POST:/api/services/app/AnestheticConsultation/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateAnestheticInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateAnestheticInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/AnestheticConsultation/Create",
+          "returnType": "AnestheticConsultationDto",
+          "dependences": [
+            "CreateAnestheticInputDto",
+            "AnestheticConsultationDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateAnestheticInputDto",
+          "name": "servicesAppAnestheticConsultationUpdateUpdate",
+          "pascalName": "ServicesAppAnestheticConsultationUpdateUpdate",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name servicesAppAnestheticConsultationUpdateUpdate",
+            "@summary Update Consultation of type \"Anesthetic\" for a Patient Case.",
+            "@request PUT:/api/services/app/AnestheticConsultation/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateAnestheticInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateAnestheticInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/AnestheticConsultation/Update",
+          "returnType": "AnestheticConsultationDto",
+          "dependences": [
+            "UpdateAnestheticInputDto",
+            "AnestheticConsultationDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppAnestheticConsultationDeleteDelete",
+          "pascalName": "ServicesAppAnestheticConsultationDeleteDelete",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name servicesAppAnestheticConsultationDeleteDelete",
+            "@summary Delete Anesthetic Consultation by id.",
+            "@request DELETE:/api/services/app/AnestheticConsultation/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/AnestheticConsultation/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
+      ],
+      "dependences": [
+        "ConsultationDtoPagedResultDto",
+        "AnestheticConsultationDto",
+        "CreateAnestheticInputDto",
+        "UpdateAnestheticInputDto"
+      ]
+    },
+    {
+      "moduleName": "Attachment",
+      "objName": "attachment",
+      "routes": [
+        {
+          "moduleName": "attachment",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppAttachmentGetList",
+          "pascalName": "ServicesAppAttachmentGetList",
+          "comments": [
+            "@tags Attachment",
+            "@name servicesAppAttachmentGetList",
+            "@request GET:/api/services/app/Attachment/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Attachment/Get",
+          "returnType": "AttachmentDto",
+          "dependences": ["AttachmentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "attachment",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": true,
+          "queryType": "{}",
+          "bodyType": "{ Name?: string | null, RefType?: number, Notes?: string | null, File: File }",
+          "name": "servicesAppAttachmentUploadCreate",
+          "pascalName": "ServicesAppAttachmentUploadCreate",
+          "comments": [
+            "@tags Attachment",
+            "@name servicesAppAttachmentUploadCreate",
+            "@request POST:/api/services/app/Attachment/Upload"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "{ Name?: string | null, RefType?: number, Notes?: string | null, File: File }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "{ Name?: string | null, RefType?: number, Notes?: string | null, File: File }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/Attachment/Upload",
+          "returnType": "AttachmentDto",
+          "dependences": ["AttachmentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        }
+      ],
+      "dependences": ["AttachmentDto"]
+    },
+    {
+      "moduleName": "BloodDonor",
+      "objName": "bloodDonor",
+      "routes": [
+        {
+          "moduleName": "bloodDonor",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number }",
+          "bodyType": null,
+          "name": "servicesAppBloodDonorGetAllList",
+          "pascalName": "ServicesAppBloodDonorGetAllList",
+          "comments": [
+            "@tags BloodDonor",
+            "@name servicesAppBloodDonorGetAllList",
+            "@request GET:/api/services/app/BloodDonor/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/BloodDonor/GetAll",
+          "returnType": "BloodDonorDtoPagedResultDto",
+          "dependences": ["BloodDonorDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "bloodDonor",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppBloodDonorGetList",
+          "pascalName": "ServicesAppBloodDonorGetList",
+          "comments": [
+            "@tags BloodDonor",
+            "@name servicesAppBloodDonorGetList",
+            "@request GET:/api/services/app/BloodDonor/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/BloodDonor/Get",
+          "returnType": "BloodDonorDetailsDto",
+          "dependences": ["BloodDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "bloodDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateBloodDonorInputDto",
+          "name": "servicesAppBloodDonorCreateCreate",
+          "pascalName": "ServicesAppBloodDonorCreateCreate",
+          "comments": [
+            "@tags BloodDonor",
+            "@name servicesAppBloodDonorCreateCreate",
+            "@request POST:/api/services/app/BloodDonor/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateBloodDonorInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateBloodDonorInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/BloodDonor/Create",
+          "returnType": "BloodDonorDetailsDto",
+          "dependences": ["CreateBloodDonorInputDto", "BloodDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "bloodDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateBloodDonorInputDto",
+          "name": "servicesAppBloodDonorUpdateUpdate",
+          "pascalName": "ServicesAppBloodDonorUpdateUpdate",
+          "comments": [
+            "@tags BloodDonor",
+            "@name servicesAppBloodDonorUpdateUpdate",
+            "@request PUT:/api/services/app/BloodDonor/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateBloodDonorInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateBloodDonorInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/BloodDonor/Update",
+          "returnType": "BloodDonorDetailsDto",
+          "dependences": ["UpdateBloodDonorInputDto", "BloodDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        }
+      ],
+      "dependences": [
+        "BloodDonorDtoPagedResultDto",
+        "BloodDonorDetailsDto",
+        "CreateBloodDonorInputDto",
+        "UpdateBloodDonorInputDto"
+      ]
+    },
+    {
+      "moduleName": "CellDonor",
+      "objName": "cellDonor",
+      "routes": [
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": null,
+          "queryType": "{}",
+          "bodyType": null,
+          "name": "servicesAppCellDonorGetAllLiteList",
+          "pascalName": "ServicesAppCellDonorGetAllLiteList",
+          "comments": [
+            "@tags CellDonor",
+            "@name servicesAppCellDonorGetAllLiteList",
+            "@summary Get Cell Donors that are not related to patient case.",
+            "@request GET:/api/services/app/CellDonor/GetAllLite"
+          ],
+          "routeArgs": [{ "name": "params", "optional": true, "type": "any" }],
+          "specificArgs": {
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/CellDonor/GetAllLite",
+          "returnType": "ValueLabelDtoListResultDto",
+          "dependences": ["ValueLabelDtoListResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null }",
+          "bodyType": null,
+          "name": "servicesAppCellDonorGetAllList",
+          "pascalName": "ServicesAppCellDonorGetAllList",
+          "comments": [
+            "@tags CellDonor",
+            "@name servicesAppCellDonorGetAllList",
+            "@request GET:/api/services/app/CellDonor/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/CellDonor/GetAll",
+          "returnType": "CellDonorDtoPagedResultDto",
+          "dependences": ["CellDonorDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppCellDonorGetList",
+          "pascalName": "ServicesAppCellDonorGetList",
+          "comments": [
+            "@tags CellDonor",
+            "@name servicesAppCellDonorGetList",
+            "@request GET:/api/services/app/CellDonor/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/CellDonor/Get",
+          "returnType": "CellDonorDetailsDto",
+          "dependences": ["CellDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateCellDonorInputDto",
+          "name": "servicesAppCellDonorCreateCreate",
+          "pascalName": "ServicesAppCellDonorCreateCreate",
+          "comments": [
+            "@tags CellDonor",
+            "@name servicesAppCellDonorCreateCreate",
+            "@request POST:/api/services/app/CellDonor/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateCellDonorInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateCellDonorInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/CellDonor/Create",
+          "returnType": "CellDonorDetailsDto",
+          "dependences": ["CreateCellDonorInputDto", "CellDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateCellDonorInputDto",
+          "name": "servicesAppCellDonorUpdateUpdate",
+          "pascalName": "ServicesAppCellDonorUpdateUpdate",
+          "comments": [
+            "@tags CellDonor",
+            "@name servicesAppCellDonorUpdateUpdate",
+            "@request PUT:/api/services/app/CellDonor/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateCellDonorInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateCellDonorInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/CellDonor/Update",
+          "returnType": "CellDonorDetailsDto",
+          "dependences": ["UpdateCellDonorInputDto", "CellDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        }
+      ],
+      "dependences": [
+        "ValueLabelDtoListResultDto",
+        "CellDonorDtoPagedResultDto",
+        "CellDonorDetailsDto",
+        "CreateCellDonorInputDto",
+        "UpdateCellDonorInputDto"
+      ]
+    },
+    {
+      "moduleName": "Consultation",
+      "objName": "consultation",
+      "routes": [
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "servicesAppConsultationGetAllList",
+          "pascalName": "ServicesAppConsultationGetAllList",
+          "comments": [
+            "@tags Consultation",
+            "@name servicesAppConsultationGetAllList",
+            "@summary Get a list of Medical/Legal Consultations for specific Patient Case or Donor",
+            "@request GET:/api/services/app/Consultation/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Consultation/GetAll",
+          "returnType": "ConsultationDtoPagedResultDto",
+          "dependences": ["ConsultationDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppConsultationGetList",
+          "pascalName": "ServicesAppConsultationGetList",
+          "comments": [
+            "@tags Consultation",
+            "@name servicesAppConsultationGetList",
+            "@summary Get Consultation of type \"Medical/Legal\" by id.",
+            "@request GET:/api/services/app/Consultation/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Consultation/Get",
+          "returnType": "ConsultationDetailsDto",
+          "dependences": ["ConsultationDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateConsultationInputDto",
+          "name": "servicesAppConsultationCreateCreate",
+          "pascalName": "ServicesAppConsultationCreateCreate",
+          "comments": [
+            "@tags Consultation",
+            "@name servicesAppConsultationCreateCreate",
+            "@summary Create Consultation of type \"Medical/Legal\" for a Patient Case or Donor.",
+            "@request POST:/api/services/app/Consultation/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateConsultationInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateConsultationInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/Consultation/Create",
+          "returnType": "ConsultationDetailsDto",
+          "dependences": [
+            "CreateConsultationInputDto",
+            "ConsultationDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateConsultationInputDto",
+          "name": "servicesAppConsultationUpdateUpdate",
+          "pascalName": "ServicesAppConsultationUpdateUpdate",
+          "comments": [
+            "@tags Consultation",
+            "@name servicesAppConsultationUpdateUpdate",
+            "@summary Update Consultation of type \"Medical/Legal\" for a Patient Case or Donor.",
+            "@request PUT:/api/services/app/Consultation/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateConsultationInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateConsultationInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/Consultation/Update",
+          "returnType": "ConsultationDetailsDto",
+          "dependences": [
+            "UpdateConsultationInputDto",
+            "ConsultationDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppConsultationDeleteDelete",
+          "pascalName": "ServicesAppConsultationDeleteDelete",
+          "comments": [
+            "@tags Consultation",
+            "@name servicesAppConsultationDeleteDelete",
+            "@summary Delete Medical/Legal Consultation by id.",
+            "@request DELETE:/api/services/app/Consultation/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/Consultation/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppConsultationGetReportList",
+          "pascalName": "ServicesAppConsultationGetReportList",
+          "comments": [
+            "@tags Consultation",
+            "@name servicesAppConsultationGetReportList",
+            "@summary Get URL of the Printable Form for a Consultation of any type by id.",
+            "@request GET:/api/services/app/Consultation/GetReport"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Consultation/GetReport",
+          "returnType": "ConsultationReportDto",
+          "dependences": ["ConsultationReportDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "ConsultationReplyInputDto",
+          "name": "servicesAppConsultationReplyCreate",
+          "pascalName": "ServicesAppConsultationReplyCreate",
+          "comments": [
+            "@tags Consultation",
+            "@name servicesAppConsultationReplyCreate",
+            "@summary Add a Reply for a Consultation of any type by id.",
+            "@request POST:/api/services/app/Consultation/Reply"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "ConsultationReplyInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "ConsultationReplyInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/Consultation/Reply",
+          "returnType": "any",
+          "dependences": ["ConsultationReplyInputDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        }
+      ],
+      "dependences": [
+        "ConsultationDtoPagedResultDto",
+        "ConsultationDetailsDto",
+        "CreateConsultationInputDto",
+        "UpdateConsultationInputDto",
+        "ConsultationReportDto",
+        "ConsultationReplyInputDto"
+      ]
+    },
+    {
+      "moduleName": "Document",
+      "objName": "document",
+      "routes": [
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "servicesAppDocumentGetAllList",
+          "pascalName": "ServicesAppDocumentGetAllList",
+          "comments": [
+            "@tags Document",
+            "@name servicesAppDocumentGetAllList",
+            "@request GET:/api/services/app/Document/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Document/GetAll",
+          "returnType": "DocumentDtoPagedResultDto",
+          "dependences": ["DocumentDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppDocumentGetList",
+          "pascalName": "ServicesAppDocumentGetList",
+          "comments": [
+            "@tags Document",
+            "@name servicesAppDocumentGetList",
+            "@request GET:/api/services/app/Document/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Document/Get",
+          "returnType": "DocumentDto",
+          "dependences": ["DocumentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateDocumentInputDto",
+          "name": "servicesAppDocumentCreateCreate",
+          "pascalName": "ServicesAppDocumentCreateCreate",
+          "comments": [
+            "@tags Document",
+            "@name servicesAppDocumentCreateCreate",
+            "@request POST:/api/services/app/Document/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateDocumentInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateDocumentInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/Document/Create",
+          "returnType": "DocumentDto",
+          "dependences": ["CreateDocumentInputDto", "DocumentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateDocumentInputDto",
+          "name": "servicesAppDocumentUpdateUpdate",
+          "pascalName": "ServicesAppDocumentUpdateUpdate",
+          "comments": [
+            "@tags Document",
+            "@name servicesAppDocumentUpdateUpdate",
+            "@request PUT:/api/services/app/Document/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateDocumentInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateDocumentInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/Document/Update",
+          "returnType": "DocumentDto",
+          "dependences": ["UpdateDocumentInputDto", "DocumentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppDocumentDeleteDelete",
+          "pascalName": "ServicesAppDocumentDeleteDelete",
+          "comments": [
+            "@tags Document",
+            "@name servicesAppDocumentDeleteDelete",
+            "@request DELETE:/api/services/app/Document/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/Document/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
+      ],
+      "dependences": [
+        "DocumentDtoPagedResultDto",
+        "DocumentDto",
+        "CreateDocumentInputDto",
+        "UpdateDocumentInputDto"
+      ]
+    },
+    {
+      "moduleName": "ImmunologicConsultation",
+      "objName": "immunologicConsultation",
+      "routes": [
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number }",
+          "bodyType": null,
+          "name": "servicesAppImmunologicConsultationGetAllList",
+          "pascalName": "ServicesAppImmunologicConsultationGetAllList",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name servicesAppImmunologicConsultationGetAllList",
+            "@summary Get a list of Immunologic Consultations for specific Patient Case",
+            "@request GET:/api/services/app/ImmunologicConsultation/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/ImmunologicConsultation/GetAll",
+          "returnType": "ConsultationDtoPagedResultDto",
+          "dependences": ["ConsultationDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppImmunologicConsultationGetList",
+          "pascalName": "ServicesAppImmunologicConsultationGetList",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name servicesAppImmunologicConsultationGetList",
+            "@summary Get Consultation of type \"Immunologic\" by id.",
+            "@request GET:/api/services/app/ImmunologicConsultation/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/ImmunologicConsultation/Get",
+          "returnType": "ImmunologicConsultationDto",
+          "dependences": ["ImmunologicConsultationDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateImmunologicInputDto",
+          "name": "servicesAppImmunologicConsultationCreateCreate",
+          "pascalName": "ServicesAppImmunologicConsultationCreateCreate",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name servicesAppImmunologicConsultationCreateCreate",
+            "@summary Create Consultation of type \"Immunologic\" for a Patient Case or Donor.",
+            "@request POST:/api/services/app/ImmunologicConsultation/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateImmunologicInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateImmunologicInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/ImmunologicConsultation/Create",
+          "returnType": "ImmunologicConsultationDto",
+          "dependences": [
+            "CreateImmunologicInputDto",
+            "ImmunologicConsultationDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateImmunologicInputDto",
+          "name": "servicesAppImmunologicConsultationUpdateUpdate",
+          "pascalName": "ServicesAppImmunologicConsultationUpdateUpdate",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name servicesAppImmunologicConsultationUpdateUpdate",
+            "@summary Update Consultation of type \"Immunologic\" for a Patient Case or Donor.",
+            "@request PUT:/api/services/app/ImmunologicConsultation/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateImmunologicInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateImmunologicInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/ImmunologicConsultation/Update",
+          "returnType": "ImmunologicConsultationDto",
+          "dependences": [
+            "UpdateImmunologicInputDto",
+            "ImmunologicConsultationDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppImmunologicConsultationDeleteDelete",
+          "pascalName": "ServicesAppImmunologicConsultationDeleteDelete",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name servicesAppImmunologicConsultationDeleteDelete",
+            "@summary Delete Immunologic Consultation by id.",
+            "@request DELETE:/api/services/app/ImmunologicConsultation/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/ImmunologicConsultation/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
+      ],
+      "dependences": [
+        "ConsultationDtoPagedResultDto",
+        "ImmunologicConsultationDto",
+        "CreateImmunologicInputDto",
+        "UpdateImmunologicInputDto"
+      ]
+    },
+    {
+      "moduleName": "PatientAnalysis",
+      "objName": "patientAnalysis",
+      "routes": [
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "servicesAppPatientAnalysisGetAllList",
+          "pascalName": "ServicesAppPatientAnalysisGetAllList",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name servicesAppPatientAnalysisGetAllList",
+            "@request GET:/api/services/app/PatientAnalysis/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/PatientAnalysis/GetAll",
+          "returnType": "PatientAnalysisDtoPagedResultDto",
+          "dependences": ["PatientAnalysisDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppPatientAnalysisGetList",
+          "pascalName": "ServicesAppPatientAnalysisGetList",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name servicesAppPatientAnalysisGetList",
+            "@request GET:/api/services/app/PatientAnalysis/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/PatientAnalysis/Get",
+          "returnType": "PatientAnalysisDetailsDto",
+          "dependences": ["PatientAnalysisDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreatePatientAnalysisInputDto",
+          "name": "servicesAppPatientAnalysisCreateCreate",
+          "pascalName": "ServicesAppPatientAnalysisCreateCreate",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name servicesAppPatientAnalysisCreateCreate",
+            "@request POST:/api/services/app/PatientAnalysis/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreatePatientAnalysisInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreatePatientAnalysisInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/PatientAnalysis/Create",
+          "returnType": "PatientAnalysisDetailsDto",
+          "dependences": [
+            "CreatePatientAnalysisInputDto",
+            "PatientAnalysisDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdatePatientAnalysisInputDto",
+          "name": "servicesAppPatientAnalysisUpdateUpdate",
+          "pascalName": "ServicesAppPatientAnalysisUpdateUpdate",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name servicesAppPatientAnalysisUpdateUpdate",
+            "@request PUT:/api/services/app/PatientAnalysis/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdatePatientAnalysisInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdatePatientAnalysisInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/PatientAnalysis/Update",
+          "returnType": "PatientAnalysisDetailsDto",
+          "dependences": [
+            "UpdatePatientAnalysisInputDto",
+            "PatientAnalysisDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppPatientAnalysisDeleteDelete",
+          "pascalName": "ServicesAppPatientAnalysisDeleteDelete",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name servicesAppPatientAnalysisDeleteDelete",
+            "@request DELETE:/api/services/app/PatientAnalysis/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/PatientAnalysis/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
+      ],
+      "dependences": [
+        "PatientAnalysisDtoPagedResultDto",
+        "PatientAnalysisDetailsDto",
+        "CreatePatientAnalysisInputDto",
+        "UpdatePatientAnalysisInputDto"
+      ]
+    },
+    {
+      "moduleName": "PatientExamination",
+      "objName": "patientExamination",
+      "routes": [
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "servicesAppPatientExaminationGetAllList",
+          "pascalName": "ServicesAppPatientExaminationGetAllList",
+          "comments": [
+            "@tags PatientExamination",
+            "@name servicesAppPatientExaminationGetAllList",
+            "@request GET:/api/services/app/PatientExamination/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/PatientExamination/GetAll",
+          "returnType": "PatientExaminationDtoPagedResultDto",
+          "dependences": ["PatientExaminationDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppPatientExaminationGetList",
+          "pascalName": "ServicesAppPatientExaminationGetList",
+          "comments": [
+            "@tags PatientExamination",
+            "@name servicesAppPatientExaminationGetList",
+            "@request GET:/api/services/app/PatientExamination/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/PatientExamination/Get",
+          "returnType": "PatientExaminationDetailsDto",
+          "dependences": ["PatientExaminationDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreatePatientExaminationInputDto",
+          "name": "servicesAppPatientExaminationCreateCreate",
+          "pascalName": "ServicesAppPatientExaminationCreateCreate",
+          "comments": [
+            "@tags PatientExamination",
+            "@name servicesAppPatientExaminationCreateCreate",
+            "@request POST:/api/services/app/PatientExamination/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreatePatientExaminationInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreatePatientExaminationInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/PatientExamination/Create",
+          "returnType": "PatientExaminationDetailsDto",
+          "dependences": [
+            "CreatePatientExaminationInputDto",
+            "PatientExaminationDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdatePatientExaminationInputDto",
+          "name": "servicesAppPatientExaminationUpdateUpdate",
+          "pascalName": "ServicesAppPatientExaminationUpdateUpdate",
+          "comments": [
+            "@tags PatientExamination",
+            "@name servicesAppPatientExaminationUpdateUpdate",
+            "@request PUT:/api/services/app/PatientExamination/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdatePatientExaminationInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdatePatientExaminationInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/PatientExamination/Update",
+          "returnType": "PatientExaminationDetailsDto",
+          "dependences": [
+            "UpdatePatientExaminationInputDto",
+            "PatientExaminationDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppPatientExaminationDeleteDelete",
+          "pascalName": "ServicesAppPatientExaminationDeleteDelete",
+          "comments": [
+            "@tags PatientExamination",
+            "@name servicesAppPatientExaminationDeleteDelete",
+            "@request DELETE:/api/services/app/PatientExamination/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/PatientExamination/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
+      ],
+      "dependences": [
+        "PatientExaminationDtoPagedResultDto",
+        "PatientExaminationDetailsDto",
+        "CreatePatientExaminationInputDto",
+        "UpdatePatientExaminationInputDto"
+      ]
+    },
+    {
+      "moduleName": "RadialImage",
+      "objName": "radialImage",
+      "routes": [
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "servicesAppRadialImageGetAllList",
+          "pascalName": "ServicesAppRadialImageGetAllList",
+          "comments": [
+            "@tags RadialImage",
+            "@name servicesAppRadialImageGetAllList",
+            "@request GET:/api/services/app/RadialImage/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/RadialImage/GetAll",
+          "returnType": "RadialImageDtoPagedResultDto",
+          "dependences": ["RadialImageDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppRadialImageGetList",
+          "pascalName": "ServicesAppRadialImageGetList",
+          "comments": [
+            "@tags RadialImage",
+            "@name servicesAppRadialImageGetList",
+            "@request GET:/api/services/app/RadialImage/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/RadialImage/Get",
+          "returnType": "RadialImageDto",
+          "dependences": ["RadialImageDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateRadialImageInputDto",
+          "name": "servicesAppRadialImageCreateCreate",
+          "pascalName": "ServicesAppRadialImageCreateCreate",
+          "comments": [
+            "@tags RadialImage",
+            "@name servicesAppRadialImageCreateCreate",
+            "@request POST:/api/services/app/RadialImage/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateRadialImageInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateRadialImageInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/RadialImage/Create",
+          "returnType": "RadialImageDto",
+          "dependences": ["CreateRadialImageInputDto", "RadialImageDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateRadialImageInputDto",
+          "name": "servicesAppRadialImageUpdateUpdate",
+          "pascalName": "ServicesAppRadialImageUpdateUpdate",
+          "comments": [
+            "@tags RadialImage",
+            "@name servicesAppRadialImageUpdateUpdate",
+            "@request PUT:/api/services/app/RadialImage/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateRadialImageInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateRadialImageInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/RadialImage/Update",
+          "returnType": "RadialImageDto",
+          "dependences": ["UpdateRadialImageInputDto", "RadialImageDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "servicesAppRadialImageDeleteDelete",
+          "pascalName": "ServicesAppRadialImageDeleteDelete",
+          "comments": [
+            "@tags RadialImage",
+            "@name servicesAppRadialImageDeleteDelete",
+            "@request DELETE:/api/services/app/RadialImage/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/RadialImage/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
+      ],
+      "dependences": [
+        "RadialImageDtoPagedResultDto",
+        "RadialImageDto",
+        "CreateRadialImageInputDto",
+        "UpdateRadialImageInputDto"
+      ]
+    }
+  ]
+}

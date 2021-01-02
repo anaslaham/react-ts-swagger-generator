@@ -7,5 +7,6 @@
     "sourceMap": true,
     "outDir": "dist"
   },
+  "exclude": ["./output", "./static", "./dist/static"],
   "lib": ["es2015"]
 }

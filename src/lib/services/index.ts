@@ -69,6 +69,7 @@ const getTypeFromRequestInfo = (
   if (refTypeInfo) {
     // const refTypeWithoutOpId = refType.replace(operationId, '');
     // const foundedSchemaByName = _.find(parsedSchemas, ({ name }) => name === refType || name === refTypeWithoutOpId)
+    //TODO: track deps add dips here
 
     // TODO:HACK fix problem of swagger2opeanpi
     const typeNameWithoutOpId = _.replace(
@@ -252,7 +253,7 @@ export const parseRoutes = (
         const pathParams = getRouteParams(parameters, "path");
         const queryParams = getRouteParams(parameters, "query");
         const requestBodyType = getSchemaFromRequestType(requestBody);
-
+        let dependences = [];
         const hasFormDataParams = formDataParams && !!formDataParams.length;
         let formDataRequestBody =
           requestBodyType && requestBodyType.dataType === "multipart/form-data";
@@ -374,7 +375,7 @@ export const parseRoutes = (
               ? "requestParams"
               : "params",
             optional: true,
-            type: "RequestParams",
+            type: "any",
           },
         };
 
@@ -383,7 +384,6 @@ export const parseRoutes = (
           specificArgs.query,
           specificArgs.body,
         ]);
-
         if (routeArgs.some((pathArg) => pathArg.optional)) {
           const { optionalArgs, requiredArgs } = _.reduce(
             [...routeArgs],
@@ -445,53 +445,51 @@ export const parseRoutes = (
         const path = route.replace(/{/g, "${");
         const hasQuery = !!queryParams.length;
         const bodyArg = requestBody ? bodyParamName : "null";
-        const upperCaseMethod = _.upperCase(method);
+        const returnType = getReturnType(responses, parsedSchemas, operationId);
 
+        if (queryType) {
+          const foundComp: any = checkForComponent(queryType);
+          foundComp && dependences.push(foundComp.typeName);
+        }
+        if (bodyType) {
+          const foundComp: any = checkForComponent(bodyType);
+          foundComp && dependences.push(foundComp.typeName);
+        }
+        if (returnType) {
+          const foundComp: any = checkForComponent(returnType);
+          foundComp && dependences.push(foundComp.typeName);
+        }
         return {
           moduleName: _.replace(moduleName, /^(\d)/, "v$1"),
           security: hasSecurity,
           hasQuery,
           hasFormDataParams: hasFormDataParams || formDataRequestBody,
           queryType: queryType || "{}",
-          bodyType: bodyType || "never",
+          bodyType: bodyType,
           name,
           pascalName: _.upperFirst(name),
           comments,
           routeArgs,
           specificArgs,
-          method: upperCaseMethod,
+          method,
           path,
-          returnType: getReturnType(responses, parsedSchemas, operationId),
+          returnType,
+          dependences,
           errorReturnType: getErrorReturnType(
             responses,
             parsedSchemas,
             operationId
           ),
           bodyArg,
-          requestMethodContent:
-            `\`${path}${
-              hasQuery
-                ? `\${this.addQueryParams(${specificArgs.query.name})}`
-                : ""
-            }\`,` +
-            `"${upperCaseMethod}", ` +
-            `${specificArgs.requestParams.name}` +
-            _.compact([
-              requestBody && `, ${bodyParamName}`,
-              (hasFormDataParams || formDataRequestBody) &&
-                `${requestBody ? "" : ", null"}, BodyType.FormData`,
-              hasSecurity &&
-                `${
-                  hasFormDataParams || formDataRequestBody
-                    ? ""
-                    : `${requestBody ? "" : ", null"}, BodyType.Json`
-                }, true`,
-            ]).join(""),
         };
       }),
     ];
   }, []);
-
+const checkForComponent = (compName) => {
+  return Object.values(config.componentsMap).find(
+    (comp: any) => comp.typeName === compName
+  );
+};
 export const groupRoutes = (routes) => {
   const duplicates = {};
   return _.reduce(
@@ -534,10 +532,22 @@ export const groupRoutes = (routes) => {
         acc.outOfModule = packRoutes;
       } else {
         if (!acc.combined) acc.combined = [];
-
+        const upperCaseModule = _.upperFirst(moduleName);
+        const camelCaseModule = _.camelCase(moduleName);
+        const dependences = _.reduce(
+          packRoutes,
+          (deps, route) => {
+            if (route.dependences) {
+              return _.uniq([...deps, ...route.dependences]);
+            }
+          },
+          []
+        );
         acc.combined.push({
-          moduleName,
+          moduleName: upperCaseModule,
+          objName: camelCaseModule,
           routes: packRoutes,
+          dependences,
         });
       }
       return acc;

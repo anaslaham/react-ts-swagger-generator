@@ -24,13 +24,6 @@ export default class ApiProvider {
   private api: AxiosInstance;
   public constructor(config: RequestConfig) {
     this.api = axios.create(config);
-    this.api.interceptors.request.use((param: AxiosRequestConfig) => ({
-      ...param,
-      headers: {
-        ...param.headers,
-        Authorization: ``,
-      },
-    }));
   }
   public async request<T>(config: RequestConfig): Promise<ApiResult<T>> {
     let result: T | ApiError = {

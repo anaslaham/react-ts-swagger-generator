@@ -1,0 +1,35 @@
+import config from "../../config";
+import ApiResult from "../../baseApi/api-result"
+import ApiService from "../../baseApi/api-service"
+{{#dependences}}
+import { {{.}} } from "../../interfaces/{{.}}"
+{{/dependences}}
+class {{moduleName}} extends ApiService {
+constructor() {
+super({ baseURL: config.baseUrl,headers:config.headers });
+}
+{{#each routes}}
+{{#each comments }}
+/* {{this}} */
+{{/each}}
+public {{name}} (
+{{#if bodyType}}
+body:{{bodyType}},
+{{/if}}
+{{#if hasQuery}}
+params:{{queryType}}
+{{/if}}
+): Promise<ApiResult<{{returnType}}>> {
+    return this.{{method}}("{{path}}", {
+    {{#if hasQuery}}
+    params,
+    {{/if}}
+    {{#if bodyType}}
+    ...body
+    {{/if}}
+    })
+    }
+    {{/each}}
+    }
+    const {{objName}} = new {{moduleName}}();
+    export default {{moduleName}}
