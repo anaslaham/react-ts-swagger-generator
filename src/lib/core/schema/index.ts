@@ -279,7 +279,6 @@ export const parseSchema = (rawSchema, typeName, formattersMap?: any) => {
     schemaType = getInternalSchemaType(fixedRawSchema);
     parsedSchema = schemaParsers[schemaType](fixedRawSchema, typeName);
   }
-  console.log("deps", _.uniq(dependences));
   return {
     ...((formattersMap &&
       formattersMap[schemaType] &&

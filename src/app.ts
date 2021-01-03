@@ -24,10 +24,11 @@ addToConfig({
 });
 const interfaceTemplate = getTemplate("interface");
 const servicesTemplate = getTemplate("services");
+const contextTemplate = getTemplate("context");
 const { info, paths, servers, components } = schema;
 const componentsMap = createComponentsMap(components);
 const schemasMap = filterComponentsMap(componentsMap, "schemas");
-createFile(`debug`, `/routes.json`, JSON.stringify(schemasMap));
+
 const apiName: string = _.camelCase(info.title) ?? "api";
 schemasMap.forEach((schema) => {
   const content = interfaceTemplate({
@@ -51,17 +52,28 @@ const routes = parseRoutes(
   false
 );
 const groupedRoutes = groupRoutes(routes);
+createFile(`debug`, `/routes.json`, JSON.stringify(groupedRoutes));
 copyFolder(`output`, "static");
 createFile(
   `output/${apiName}/config`,
   `/index.ts`,
   format("export default {baseUrl:'' , headers :{}}", prettierConfig)
 );
+
 groupedRoutes.combined.forEach((route) => {
   const content = servicesTemplate(route);
   createFile(
     `output/${apiName}/services/${route.moduleName}`,
     `/index.ts`,
+    format(content, prettierConfig)
+  );
+});
+
+groupedRoutes.combined.forEach((route) => {
+  const content = contextTemplate(route);
+  createFile(
+    `output/${apiName}/contexts/${route.moduleName}`,
+    `/index.tsx`,
     format(content, prettierConfig)
   );
 });

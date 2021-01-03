@@ -1,1816 +1,2055 @@
-[
-  {
-    "typeName": "LiteEntityDto",
-    "rawTypeData": {
-      "required": ["id"],
-      "type": "object",
-      "properties": {
-        "name": { "type": "string", "nullable": true },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ConsultationDto",
-    "rawTypeData": {
-      "required": ["creationTime", "id", "replyStatus", "type"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "requesterDoctor": { "type": "string", "nullable": true },
-        "nameIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "type": {
-          "type": "integer",
-          "description": "Consultation Type: 1- Medical/Legal, 2- Anesthetic, 3- Immunologic",
-          "format": "int32"
+{
+  "outOfModule": [],
+  "combined": [
+    {
+      "moduleName": "AnestheticConsultation",
+      "objName": "anestheticConsultation",
+      "routes": [
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number }",
+          "bodyType": null,
+          "name": "anestheticConsultationGetAll",
+          "pascalName": "AnestheticConsultationGetAll",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name anestheticConsultationGetAll",
+            "@summary Get a list of Anesthetic Consultations for specific Patient Case",
+            "@request GET:/api/services/app/AnestheticConsultation/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/AnestheticConsultation/GetAll",
+          "returnType": "ConsultationDtoPagedResultDto",
+          "dependences": ["ConsultationDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         },
-        "creationTime": { "type": "string", "format": "date-time" },
-        "replyStatus": {
-          "type": "integer",
-          "description": "Consultation Reply Status: 1- Pending, 2- Replied,",
-          "format": "int32"
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "anestheticConsultationGet",
+          "pascalName": "AnestheticConsultationGet",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name anestheticConsultationGet",
+            "@summary Get Consultation of type \"Anesthetic\" by id.",
+            "@request GET:/api/services/app/AnestheticConsultation/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/AnestheticConsultation/Get",
+          "returnType": "AnestheticConsultationDto",
+          "dependences": ["AnestheticConsultationDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ConsultationDtoPagedResultDto",
-    "rawTypeData": {
-      "required": ["totalCount"],
-      "type": "object",
-      "properties": {
-        "totalCount": { "type": "integer", "format": "int32" },
-        "items": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/ConsultationDto" },
-          "nullable": true
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateAnestheticInputDto",
+          "name": "anestheticConsultationCreate",
+          "pascalName": "AnestheticConsultationCreate",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name anestheticConsultationCreate",
+            "@summary Create Consultation of type \"Anesthetic\" for a Patient Case.",
+            "@request POST:/api/services/app/AnestheticConsultation/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateAnestheticInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateAnestheticInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/AnestheticConsultation/Create",
+          "returnType": "AnestheticConsultationDto",
+          "dependences": [
+            "CreateAnestheticInputDto",
+            "AnestheticConsultationDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateAnestheticInputDto",
+          "name": "anestheticConsultationUpdate",
+          "pascalName": "AnestheticConsultationUpdate",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name anestheticConsultationUpdate",
+            "@summary Update Consultation of type \"Anesthetic\" for a Patient Case.",
+            "@request PUT:/api/services/app/AnestheticConsultation/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateAnestheticInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateAnestheticInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/AnestheticConsultation/Update",
+          "returnType": "AnestheticConsultationDto",
+          "dependences": [
+            "UpdateAnestheticInputDto",
+            "AnestheticConsultationDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "anestheticConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "anestheticConsultationDelete",
+          "pascalName": "AnestheticConsultationDelete",
+          "comments": [
+            "@tags AnestheticConsultation",
+            "@name anestheticConsultationDelete",
+            "@summary Delete Anesthetic Consultation by id.",
+            "@request DELETE:/api/services/app/AnestheticConsultation/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/AnestheticConsultation/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "LiteAttachmentDto",
-    "rawTypeData": {
-      "required": ["id"],
-      "type": "object",
-      "properties": {
-        "url": { "type": "string", "nullable": true },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ConsultationReplyDto",
-    "rawTypeData": {
-      "type": "object",
-      "properties": {
-        "assets": { "type": "string", "nullable": true },
-        "recommendations": { "type": "string", "nullable": true },
-        "attachments": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/LiteAttachmentDto" },
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "AnestheticConsultationDto",
-    "rawTypeData": {
-      "required": [
-        "caseId",
-        "catheterDate",
-        "creationTime",
-        "id",
-        "replyStatus",
-        "status",
-        "type"
       ],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32" },
-        "catheterTypeIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "catheterLocationIndex": {
-          "$ref": "#/components/schemas/LiteEntityDto"
-        },
-        "catheterDate": { "type": "string", "format": "date-time" },
-        "subject": { "type": "string", "nullable": true },
-        "anesthesiologist": { "type": "string", "nullable": true },
-        "type": {
-          "type": "integer",
-          "description": "Consultation Type: 1- Medical/Legal, 2- Anesthetic, 3- Immunologic",
-          "format": "int32"
-        },
-        "typeIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "nameIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "creationTime": { "type": "string", "format": "date-time" },
-        "supervisoryDoctor": { "type": "string", "nullable": true },
-        "requesterDoctor": { "type": "string", "nullable": true },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
-        },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "replyStatus": {
-          "type": "integer",
-          "description": "Consultation Reply Status: 1- Pending, 2- Replied,",
-          "format": "int32"
-        },
-        "consultationReply": {
-          "$ref": "#/components/schemas/ConsultationReplyDto"
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "description": "Notes",
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
+      "dependences": [
+        "ConsultationDtoPagedResultDto",
+        "AnestheticConsultationDto",
+        "CreateAnestheticInputDto",
+        "UpdateAnestheticInputDto"
+      ]
     },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreateAnestheticInputDto",
-    "rawTypeData": {
-      "required": [
-        "anesthesiologist",
-        "caseId",
-        "catheterDate",
-        "catheterLocationIndexId",
-        "catheterTypeIndexId",
-        "nameIndexId",
-        "status",
-        "subject",
-        "typeIndexId"
+    {
+      "moduleName": "Attachment",
+      "objName": "attachment",
+      "routes": [
+        {
+          "moduleName": "attachment",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "attachmentGet",
+          "pascalName": "AttachmentGet",
+          "comments": [
+            "@tags Attachment",
+            "@name attachmentGet",
+            "@request GET:/api/services/app/Attachment/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Attachment/Get",
+          "returnType": "AttachmentDto",
+          "dependences": ["AttachmentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "attachment",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": true,
+          "queryType": "{}",
+          "bodyType": "{ Name?: string | null, RefType?: number, Notes?: string | null, File: File }",
+          "name": "attachmentUpload",
+          "pascalName": "AttachmentUpload",
+          "comments": [
+            "@tags Attachment",
+            "@name attachmentUpload",
+            "@request POST:/api/services/app/Attachment/Upload"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "{ Name?: string | null, RefType?: number, Notes?: string | null, File: File }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "{ Name?: string | null, RefType?: number, Notes?: string | null, File: File }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/Attachment/Upload",
+          "returnType": "AttachmentDto",
+          "dependences": ["AttachmentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        }
       ],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32" },
-        "catheterTypeIndexId": { "type": "integer", "format": "int32" },
-        "catheterLocationIndexId": { "type": "integer", "format": "int32" },
-        "catheterDate": { "type": "string", "format": "date-time" },
-        "subject": { "maxLength": 1000, "minLength": 0, "type": "string" },
-        "anesthesiologist": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "typeIndexId": { "type": "integer", "format": "int32" },
-        "nameIndexId": { "type": "integer", "format": "int32" },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
+      "dependences": ["AttachmentDto"]
     },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdateAnestheticInputDto",
-    "rawTypeData": {
-      "required": [
-        "anesthesiologist",
-        "caseId",
-        "catheterDate",
-        "catheterLocationIndexId",
-        "catheterTypeIndexId",
-        "id",
-        "nameIndexId",
-        "status",
-        "subject",
-        "typeIndexId"
+    {
+      "moduleName": "BloodDonor",
+      "objName": "bloodDonor",
+      "routes": [
+        {
+          "moduleName": "bloodDonor",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number }",
+          "bodyType": null,
+          "name": "bloodDonorGetAll",
+          "pascalName": "BloodDonorGetAll",
+          "comments": [
+            "@tags BloodDonor",
+            "@name bloodDonorGetAll",
+            "@request GET:/api/services/app/BloodDonor/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/BloodDonor/GetAll",
+          "returnType": "BloodDonorDtoPagedResultDto",
+          "dependences": ["BloodDonorDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "bloodDonor",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "bloodDonorGet",
+          "pascalName": "BloodDonorGet",
+          "comments": [
+            "@tags BloodDonor",
+            "@name bloodDonorGet",
+            "@request GET:/api/services/app/BloodDonor/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/BloodDonor/Get",
+          "returnType": "BloodDonorDetailsDto",
+          "dependences": ["BloodDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "bloodDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateBloodDonorInputDto",
+          "name": "bloodDonorCreate",
+          "pascalName": "BloodDonorCreate",
+          "comments": [
+            "@tags BloodDonor",
+            "@name bloodDonorCreate",
+            "@request POST:/api/services/app/BloodDonor/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateBloodDonorInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateBloodDonorInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/BloodDonor/Create",
+          "returnType": "BloodDonorDetailsDto",
+          "dependences": ["CreateBloodDonorInputDto", "BloodDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "bloodDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateBloodDonorInputDto",
+          "name": "bloodDonorUpdate",
+          "pascalName": "BloodDonorUpdate",
+          "comments": [
+            "@tags BloodDonor",
+            "@name bloodDonorUpdate",
+            "@request PUT:/api/services/app/BloodDonor/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateBloodDonorInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateBloodDonorInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/BloodDonor/Update",
+          "returnType": "BloodDonorDetailsDto",
+          "dependences": ["UpdateBloodDonorInputDto", "BloodDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        }
       ],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "caseId": { "type": "integer", "format": "int32" },
-        "catheterTypeIndexId": { "type": "integer", "format": "int32" },
-        "catheterLocationIndexId": { "type": "integer", "format": "int32" },
-        "catheterDate": { "type": "string", "format": "date-time" },
-        "subject": { "maxLength": 1000, "minLength": 0, "type": "string" },
-        "anesthesiologist": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
+      "dependences": [
+        "BloodDonorDtoPagedResultDto",
+        "BloodDonorDetailsDto",
+        "CreateBloodDonorInputDto",
+        "UpdateBloodDonorInputDto"
+      ]
+    },
+    {
+      "moduleName": "CellDonor",
+      "objName": "cellDonor",
+      "routes": [
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": null,
+          "queryType": "{}",
+          "bodyType": null,
+          "name": "cellDonorGetAllLite",
+          "pascalName": "CellDonorGetAllLite",
+          "comments": [
+            "@tags CellDonor",
+            "@name cellDonorGetAllLite",
+            "@summary Get Cell Donors that are not related to patient case.",
+            "@request GET:/api/services/app/CellDonor/GetAllLite"
+          ],
+          "routeArgs": [{ "name": "params", "optional": true, "type": "any" }],
+          "specificArgs": {
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/CellDonor/GetAllLite",
+          "returnType": "ValueLabelDtoListResultDto",
+          "dependences": ["ValueLabelDtoListResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         },
-        "typeIndexId": { "type": "integer", "format": "int32" },
-        "nameIndexId": { "type": "integer", "format": "int32" },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null }",
+          "bodyType": null,
+          "name": "cellDonorGetAll",
+          "pascalName": "CellDonorGetAll",
+          "comments": [
+            "@tags CellDonor",
+            "@name cellDonorGetAll",
+            "@request GET:/api/services/app/CellDonor/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/CellDonor/GetAll",
+          "returnType": "CellDonorDtoPagedResultDto",
+          "dependences": ["CellDonorDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "cellDonorGet",
+          "pascalName": "CellDonorGet",
+          "comments": [
+            "@tags CellDonor",
+            "@name cellDonorGet",
+            "@request GET:/api/services/app/CellDonor/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/CellDonor/Get",
+          "returnType": "CellDonorDetailsDto",
+          "dependences": ["CellDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateCellDonorInputDto",
+          "name": "cellDonorCreate",
+          "pascalName": "CellDonorCreate",
+          "comments": [
+            "@tags CellDonor",
+            "@name cellDonorCreate",
+            "@request POST:/api/services/app/CellDonor/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateCellDonorInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateCellDonorInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/CellDonor/Create",
+          "returnType": "CellDonorDetailsDto",
+          "dependences": ["CreateCellDonorInputDto", "CellDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "cellDonor",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateCellDonorInputDto",
+          "name": "cellDonorUpdate",
+          "pascalName": "CellDonorUpdate",
+          "comments": [
+            "@tags CellDonor",
+            "@name cellDonorUpdate",
+            "@request PUT:/api/services/app/CellDonor/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateCellDonorInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateCellDonorInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/CellDonor/Update",
+          "returnType": "CellDonorDetailsDto",
+          "dependences": ["UpdateCellDonorInputDto", "CellDonorDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
         }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "AttachmentDto",
-    "rawTypeData": {
-      "required": ["id", "refType", "type"],
-      "type": "object",
-      "properties": {
-        "refType": {
-          "type": "integer",
-          "description": "Type of related entity:\r\n1- ConsultationReply , 2- Document , 3- RadialImage , 4- Section , 5- StockAdjustment , 6- Therapy",
-          "format": "int32"
-        },
-        "refId": {
-          "type": "integer",
-          "description": "Id of related entity",
-          "format": "int64",
-          "nullable": true
-        },
-        "type": {
-          "type": "integer",
-          "description": "Attachment Type: 1- Pdf, 2- Word, 3- Jpeg, 4- Png, 5- Jpg",
-          "format": "int32"
-        },
-        "url": {
-          "type": "string",
-          "description": "Attachment Url",
-          "nullable": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Attachment Name",
-          "nullable": true
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "description": "Notes",
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "BloodDonorDto",
-    "rawTypeData": {
-      "required": ["age", "bloodType", "caseId", "donorType", "gender", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32" },
-        "donorCode": { "type": "string", "nullable": true },
-        "donorType": {
-          "type": "integer",
-          "description": "Type of Donor: 1- Blood Donor, 2- Blood Plates Donor",
-          "format": "int32"
-        },
-        "bloodType": {
-          "type": "integer",
-          "description": "Blood Type: 1- A+,  2- A-,  3- B+,  4- B-,  5- AB+,  6- AB-,  7- O+,  8- O-",
-          "format": "int32"
-        },
-        "fullName": { "type": "string", "nullable": true },
-        "gender": {
-          "type": "integer",
-          "description": "Gender: 1- Male, 2- Female",
-          "format": "int32"
-        },
-        "age": { "type": "integer", "format": "int32" },
-        "address": { "type": "string", "nullable": true },
-        "mobileNumber": { "type": "string", "nullable": true },
-        "livingCityIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "patternedBloodTypeIndex": {
-          "$ref": "#/components/schemas/LiteEntityDto"
-        },
-        "relationIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "BloodDonorDtoPagedResultDto",
-    "rawTypeData": {
-      "required": ["totalCount"],
-      "type": "object",
-      "properties": {
-        "totalCount": { "type": "integer", "format": "int32" },
-        "items": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/BloodDonorDto" },
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "BloodDonorDetailsDto",
-    "rawTypeData": {
-      "required": [
-        "age",
-        "birthDate",
-        "bloodType",
-        "caseId",
-        "donorType",
-        "gender",
-        "id"
       ],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32" },
-        "donorCode": { "type": "string", "nullable": true },
-        "donorType": {
-          "type": "integer",
-          "description": "Type of Donor: 1- Blood Donor, 2- Blood Plates Donor",
-          "format": "int32"
-        },
-        "bloodType": {
-          "type": "integer",
-          "description": "Blood Type: 1- A+,  2- A-,  3- B+,  4- B-,  5- AB+,  6- AB-,  7- O+,  8- O-",
-          "format": "int32"
-        },
-        "firstName": { "type": "string", "nullable": true },
-        "lastName": { "type": "string", "nullable": true },
-        "birthDate": { "type": "string", "format": "date-time" },
-        "birthCityIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "gender": {
-          "type": "integer",
-          "description": "Gender: 1- Male, 2- Female",
-          "format": "int32"
-        },
-        "age": { "type": "integer", "format": "int32" },
-        "address": { "type": "string", "nullable": true },
-        "mobileNumber": { "type": "string", "nullable": true },
-        "landLine": { "type": "string", "nullable": true },
-        "nationalNumber": { "type": "string", "nullable": true },
-        "livingCityIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "patternedBloodTypeIndex": {
-          "$ref": "#/components/schemas/LiteEntityDto"
-        },
-        "relationIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifierUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
+      "dependences": [
+        "ValueLabelDtoListResultDto",
+        "CellDonorDtoPagedResultDto",
+        "CellDonorDetailsDto",
+        "CreateCellDonorInputDto",
+        "UpdateCellDonorInputDto"
+      ]
     },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreateBloodDonorInputDto",
-    "rawTypeData": {
-      "required": [
-        "address",
-        "birthCityIndexId",
-        "birthDate",
-        "bloodType",
-        "caseId",
-        "donorCode",
-        "donorType",
-        "firstName",
-        "gender",
-        "lastName",
-        "livingCityIndexId",
-        "mobileNumber",
-        "nationalNumber",
-        "patternedBloodTypeIndexId"
+    {
+      "moduleName": "Consultation",
+      "objName": "consultation",
+      "routes": [
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "consultationGetAll",
+          "pascalName": "ConsultationGetAll",
+          "comments": [
+            "@tags Consultation",
+            "@name consultationGetAll",
+            "@summary Get a list of Medical/Legal Consultations for specific Patient Case or Donor",
+            "@request GET:/api/services/app/Consultation/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Consultation/GetAll",
+          "returnType": "ConsultationDtoPagedResultDto",
+          "dependences": ["ConsultationDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "consultationGet",
+          "pascalName": "ConsultationGet",
+          "comments": [
+            "@tags Consultation",
+            "@name consultationGet",
+            "@summary Get Consultation of type \"Medical/Legal\" by id.",
+            "@request GET:/api/services/app/Consultation/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Consultation/Get",
+          "returnType": "ConsultationDetailsDto",
+          "dependences": ["ConsultationDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateConsultationInputDto",
+          "name": "consultationCreate",
+          "pascalName": "ConsultationCreate",
+          "comments": [
+            "@tags Consultation",
+            "@name consultationCreate",
+            "@summary Create Consultation of type \"Medical/Legal\" for a Patient Case or Donor.",
+            "@request POST:/api/services/app/Consultation/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateConsultationInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateConsultationInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/Consultation/Create",
+          "returnType": "ConsultationDetailsDto",
+          "dependences": [
+            "CreateConsultationInputDto",
+            "ConsultationDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateConsultationInputDto",
+          "name": "consultationUpdate",
+          "pascalName": "ConsultationUpdate",
+          "comments": [
+            "@tags Consultation",
+            "@name consultationUpdate",
+            "@summary Update Consultation of type \"Medical/Legal\" for a Patient Case or Donor.",
+            "@request PUT:/api/services/app/Consultation/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateConsultationInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateConsultationInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/Consultation/Update",
+          "returnType": "ConsultationDetailsDto",
+          "dependences": [
+            "UpdateConsultationInputDto",
+            "ConsultationDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "consultationDelete",
+          "pascalName": "ConsultationDelete",
+          "comments": [
+            "@tags Consultation",
+            "@name consultationDelete",
+            "@summary Delete Medical/Legal Consultation by id.",
+            "@request DELETE:/api/services/app/Consultation/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/Consultation/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "consultationGetReport",
+          "pascalName": "ConsultationGetReport",
+          "comments": [
+            "@tags Consultation",
+            "@name consultationGetReport",
+            "@summary Get URL of the Printable Form for a Consultation of any type by id.",
+            "@request GET:/api/services/app/Consultation/GetReport"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Consultation/GetReport",
+          "returnType": "ConsultationReportDto",
+          "dependences": ["ConsultationReportDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "consultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "ConsultationReplyInputDto",
+          "name": "consultationReply",
+          "pascalName": "ConsultationReply",
+          "comments": [
+            "@tags Consultation",
+            "@name consultationReply",
+            "@summary Add a Reply for a Consultation of any type by id.",
+            "@request POST:/api/services/app/Consultation/Reply"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "ConsultationReplyInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "ConsultationReplyInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/Consultation/Reply",
+          "returnType": "any",
+          "dependences": ["ConsultationReplyInputDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        }
       ],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32" },
-        "firstName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "lastName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "gender": {
-          "type": "integer",
-          "description": "Gender: 1- Male, 2- Female",
-          "format": "int32"
-        },
-        "mobileNumber": {
-          "maxLength": 50,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string"
-        },
-        "landLine": {
-          "maxLength": 50,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string",
-          "nullable": true
-        },
-        "birthDate": { "type": "string", "format": "date-time" },
-        "bloodType": {
-          "type": "integer",
-          "description": "Blood Type: 1- A+,  2- A-,  3- B+,  4- B-,  5- AB+,  6- AB-,  7- O+,  8- O-",
-          "format": "int32"
-        },
-        "patternedBloodTypeIndexId": { "type": "integer", "format": "int32" },
-        "livingCityIndexId": { "type": "integer", "format": "int32" },
-        "birthCityIndexId": { "type": "integer", "format": "int32" },
-        "address": { "maxLength": 100, "minLength": 0, "type": "string" },
-        "donorCode": { "maxLength": 50, "minLength": 0, "type": "string" },
-        "donorType": {
-          "type": "integer",
-          "description": "Type of Donor: 1- Blood Donor, 2- Blood Plates Donor",
-          "format": "int32"
-        },
-        "nationalNumber": {
-          "maxLength": 11,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string"
-        },
-        "relationIndexId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
+      "dependences": [
+        "ConsultationDtoPagedResultDto",
+        "ConsultationDetailsDto",
+        "CreateConsultationInputDto",
+        "UpdateConsultationInputDto",
+        "ConsultationReportDto",
+        "ConsultationReplyInputDto"
+      ]
     },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdateBloodDonorInputDto",
-    "rawTypeData": {
-      "required": [
-        "address",
-        "birthCityIndexId",
-        "birthDate",
-        "bloodType",
-        "caseId",
-        "donorCode",
-        "donorType",
-        "firstName",
-        "gender",
-        "id",
-        "lastName",
-        "livingCityIndexId",
-        "mobileNumber",
-        "nationalNumber",
-        "patternedBloodTypeIndexId"
+    {
+      "moduleName": "Document",
+      "objName": "document",
+      "routes": [
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "documentGetAll",
+          "pascalName": "DocumentGetAll",
+          "comments": [
+            "@tags Document",
+            "@name documentGetAll",
+            "@request GET:/api/services/app/Document/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Document/GetAll",
+          "returnType": "DocumentDtoPagedResultDto",
+          "dependences": ["DocumentDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "documentGet",
+          "pascalName": "DocumentGet",
+          "comments": [
+            "@tags Document",
+            "@name documentGet",
+            "@request GET:/api/services/app/Document/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/Document/Get",
+          "returnType": "DocumentDto",
+          "dependences": ["DocumentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateDocumentInputDto",
+          "name": "documentCreate",
+          "pascalName": "DocumentCreate",
+          "comments": [
+            "@tags Document",
+            "@name documentCreate",
+            "@request POST:/api/services/app/Document/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateDocumentInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateDocumentInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/Document/Create",
+          "returnType": "DocumentDto",
+          "dependences": ["CreateDocumentInputDto", "DocumentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateDocumentInputDto",
+          "name": "documentUpdate",
+          "pascalName": "DocumentUpdate",
+          "comments": [
+            "@tags Document",
+            "@name documentUpdate",
+            "@request PUT:/api/services/app/Document/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateDocumentInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateDocumentInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/Document/Update",
+          "returnType": "DocumentDto",
+          "dependences": ["UpdateDocumentInputDto", "DocumentDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "document",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "documentDelete",
+          "pascalName": "DocumentDelete",
+          "comments": [
+            "@tags Document",
+            "@name documentDelete",
+            "@request DELETE:/api/services/app/Document/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/Document/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
       ],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "caseId": { "type": "integer", "format": "int32" },
-        "firstName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
+      "dependences": [
+        "DocumentDtoPagedResultDto",
+        "DocumentDto",
+        "CreateDocumentInputDto",
+        "UpdateDocumentInputDto"
+      ]
+    },
+    {
+      "moduleName": "ImmunologicConsultation",
+      "objName": "immunologicConsultation",
+      "routes": [
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number }",
+          "bodyType": null,
+          "name": "immunologicConsultationGetAll",
+          "pascalName": "ImmunologicConsultationGetAll",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name immunologicConsultationGetAll",
+            "@summary Get a list of Immunologic Consultations for specific Patient Case",
+            "@request GET:/api/services/app/ImmunologicConsultation/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/ImmunologicConsultation/GetAll",
+          "returnType": "ConsultationDtoPagedResultDto",
+          "dependences": ["ConsultationDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         },
-        "lastName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "immunologicConsultationGet",
+          "pascalName": "ImmunologicConsultationGet",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name immunologicConsultationGet",
+            "@summary Get Consultation of type \"Immunologic\" by id.",
+            "@request GET:/api/services/app/ImmunologicConsultation/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/ImmunologicConsultation/Get",
+          "returnType": "ImmunologicConsultationDto",
+          "dependences": ["ImmunologicConsultationDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         },
-        "gender": {
-          "type": "integer",
-          "description": "Gender: 1- Male, 2- Female",
-          "format": "int32"
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateImmunologicInputDto",
+          "name": "immunologicConsultationCreate",
+          "pascalName": "ImmunologicConsultationCreate",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name immunologicConsultationCreate",
+            "@summary Create Consultation of type \"Immunologic\" for a Patient Case or Donor.",
+            "@request POST:/api/services/app/ImmunologicConsultation/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateImmunologicInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateImmunologicInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/ImmunologicConsultation/Create",
+          "returnType": "ImmunologicConsultationDto",
+          "dependences": [
+            "CreateImmunologicInputDto",
+            "ImmunologicConsultationDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
         },
-        "mobileNumber": {
-          "maxLength": 50,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string"
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateImmunologicInputDto",
+          "name": "immunologicConsultationUpdate",
+          "pascalName": "ImmunologicConsultationUpdate",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name immunologicConsultationUpdate",
+            "@summary Update Consultation of type \"Immunologic\" for a Patient Case or Donor.",
+            "@request PUT:/api/services/app/ImmunologicConsultation/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateImmunologicInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateImmunologicInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/ImmunologicConsultation/Update",
+          "returnType": "ImmunologicConsultationDto",
+          "dependences": [
+            "UpdateImmunologicInputDto",
+            "ImmunologicConsultationDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
         },
-        "landLine": {
-          "maxLength": 50,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string",
-          "nullable": true
-        },
-        "birthDate": { "type": "string", "format": "date-time" },
-        "bloodType": {
-          "type": "integer",
-          "description": "Blood Type: 1- A+,  2- A-,  3- B+,  4- B-,  5- AB+,  6- AB-,  7- O+,  8- O-",
-          "format": "int32"
-        },
-        "patternedBloodTypeIndexId": { "type": "integer", "format": "int32" },
-        "livingCityIndexId": { "type": "integer", "format": "int32" },
-        "birthCityIndexId": { "type": "integer", "format": "int32" },
-        "address": { "maxLength": 100, "minLength": 0, "type": "string" },
-        "donorCode": { "maxLength": 50, "minLength": 0, "type": "string" },
-        "donorType": {
-          "type": "integer",
-          "description": "Type of Donor: 1- Blood Donor, 2- Blood Plates Donor",
-          "format": "int32"
-        },
-        "nationalNumber": {
-          "maxLength": 11,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string"
-        },
-        "relationIndexId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
+        {
+          "moduleName": "immunologicConsultation",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "immunologicConsultationDelete",
+          "pascalName": "ImmunologicConsultationDelete",
+          "comments": [
+            "@tags ImmunologicConsultation",
+            "@name immunologicConsultationDelete",
+            "@summary Delete Immunologic Consultation by id.",
+            "@request DELETE:/api/services/app/ImmunologicConsultation/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/ImmunologicConsultation/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ValueLabelDto",
-    "rawTypeData": {
-      "required": ["value"],
-      "type": "object",
-      "properties": {
-        "value": { "type": "integer", "format": "int64" },
-        "label": { "type": "string", "nullable": true }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ValueLabelDtoListResultDto",
-    "rawTypeData": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/ValueLabelDto" },
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CellDonorDto",
-    "rawTypeData": {
-      "required": ["age", "gender", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorCode": { "type": "string", "nullable": true },
-        "fullName": { "type": "string", "nullable": true },
-        "gender": {
-          "type": "integer",
-          "description": "Gender:\r\n1- Male, \r\n2- Female",
-          "format": "int32"
-        },
-        "age": { "type": "integer", "format": "int32" },
-        "address": { "type": "string", "nullable": true },
-        "mobileNumber": { "type": "string", "nullable": true },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CellDonorDtoPagedResultDto",
-    "rawTypeData": {
-      "required": ["totalCount"],
-      "type": "object",
-      "properties": {
-        "totalCount": { "type": "integer", "format": "int32" },
-        "items": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/CellDonorDto" },
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CellDonorDetailsDto",
-    "rawTypeData": {
-      "required": ["age", "birthDate", "bloodType", "gender", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "firstName": { "type": "string", "nullable": true },
-        "lastName": { "type": "string", "nullable": true },
-        "fatherName": { "type": "string", "nullable": true },
-        "motherName": { "type": "string", "nullable": true },
-        "gender": {
-          "type": "integer",
-          "description": "Gender:\r\n1- Male, 2- Female",
-          "format": "int32"
-        },
-        "bloodType": {
-          "type": "integer",
-          "description": "Blood Type: 1- A+,  2- A-,  3- B+,  4- B-,  5- AB+,  6- AB-,  7- O+,  8- O-",
-          "format": "int32"
-        },
-        "birthDate": { "type": "string", "format": "date-time" },
-        "birthCityIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "age": { "type": "integer", "format": "int32" },
-        "address": { "type": "string", "nullable": true },
-        "mobileNumber": { "type": "string", "nullable": true },
-        "landLine": { "type": "string", "nullable": true },
-        "nationalNumber": { "type": "string", "nullable": true },
-        "livingCityIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "relationIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifierUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreateCellDonorInputDto",
-    "rawTypeData": {
-      "required": [
-        "address",
-        "birthCityIndexId",
-        "birthDate",
-        "bloodType",
-        "donorCode",
-        "fatherName",
-        "firstName",
-        "gender",
-        "lastName",
-        "livingCityIndexId",
-        "mobileNumber",
-        "motherName"
       ],
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "lastName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "fatherName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "motherName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "gender": {
-          "type": "integer",
-          "description": "Gender: 1- Male, 2- Female",
-          "format": "int32"
-        },
-        "bloodType": {
-          "type": "integer",
-          "description": "Blood Type: 1- A+,  2- A-,  3- B+,  4- B-,  5- AB+,  6- AB-,  7- O+,  8- O-",
-          "format": "int32"
-        },
-        "birthDate": { "type": "string", "format": "date-time" },
-        "birthCityIndexId": { "type": "integer", "format": "int32" },
-        "donorCode": { "maxLength": 50, "minLength": 0, "type": "string" },
-        "address": { "maxLength": 200, "minLength": 0, "type": "string" },
-        "mobileNumber": {
-          "maxLength": 50,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string"
-        },
-        "landLine": {
-          "maxLength": 50,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string",
-          "nullable": true
-        },
-        "nationalNumber": {
-          "maxLength": 11,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string",
-          "nullable": true
-        },
-        "livingCityIndexId": { "type": "integer", "format": "int32" },
-        "relationIndexId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
+      "dependences": [
+        "ConsultationDtoPagedResultDto",
+        "ImmunologicConsultationDto",
+        "CreateImmunologicInputDto",
+        "UpdateImmunologicInputDto"
+      ]
     },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdateCellDonorInputDto",
-    "rawTypeData": {
-      "required": [
-        "address",
-        "birthCityIndexId",
-        "birthDate",
-        "bloodType",
-        "donorCode",
-        "fatherName",
-        "firstName",
-        "gender",
-        "id",
-        "lastName",
-        "livingCityIndexId",
-        "mobileNumber",
-        "motherName"
+    {
+      "moduleName": "PatientAnalysis",
+      "objName": "patientAnalysis",
+      "routes": [
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "patientAnalysisGetAll",
+          "pascalName": "PatientAnalysisGetAll",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name patientAnalysisGetAll",
+            "@request GET:/api/services/app/PatientAnalysis/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/PatientAnalysis/GetAll",
+          "returnType": "PatientAnalysisDtoPagedResultDto",
+          "dependences": ["PatientAnalysisDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "patientAnalysisGet",
+          "pascalName": "PatientAnalysisGet",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name patientAnalysisGet",
+            "@request GET:/api/services/app/PatientAnalysis/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/PatientAnalysis/Get",
+          "returnType": "PatientAnalysisDetailsDto",
+          "dependences": ["PatientAnalysisDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreatePatientAnalysisInputDto",
+          "name": "patientAnalysisCreate",
+          "pascalName": "PatientAnalysisCreate",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name patientAnalysisCreate",
+            "@request POST:/api/services/app/PatientAnalysis/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreatePatientAnalysisInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreatePatientAnalysisInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/PatientAnalysis/Create",
+          "returnType": "PatientAnalysisDetailsDto",
+          "dependences": [
+            "CreatePatientAnalysisInputDto",
+            "PatientAnalysisDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdatePatientAnalysisInputDto",
+          "name": "patientAnalysisUpdate",
+          "pascalName": "PatientAnalysisUpdate",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name patientAnalysisUpdate",
+            "@request PUT:/api/services/app/PatientAnalysis/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdatePatientAnalysisInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdatePatientAnalysisInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/PatientAnalysis/Update",
+          "returnType": "PatientAnalysisDetailsDto",
+          "dependences": [
+            "UpdatePatientAnalysisInputDto",
+            "PatientAnalysisDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "patientAnalysis",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "patientAnalysisDelete",
+          "pascalName": "PatientAnalysisDelete",
+          "comments": [
+            "@tags PatientAnalysis",
+            "@name patientAnalysisDelete",
+            "@request DELETE:/api/services/app/PatientAnalysis/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/PatientAnalysis/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
       ],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "firstName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
+      "dependences": [
+        "PatientAnalysisDtoPagedResultDto",
+        "PatientAnalysisDetailsDto",
+        "CreatePatientAnalysisInputDto",
+        "UpdatePatientAnalysisInputDto"
+      ]
+    },
+    {
+      "moduleName": "PatientExamination",
+      "objName": "patientExamination",
+      "routes": [
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "patientExaminationGetAll",
+          "pascalName": "PatientExaminationGetAll",
+          "comments": [
+            "@tags PatientExamination",
+            "@name patientExaminationGetAll",
+            "@request GET:/api/services/app/PatientExamination/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/PatientExamination/GetAll",
+          "returnType": "PatientExaminationDtoPagedResultDto",
+          "dependences": ["PatientExaminationDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         },
-        "lastName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "patientExaminationGet",
+          "pascalName": "PatientExaminationGet",
+          "comments": [
+            "@tags PatientExamination",
+            "@name patientExaminationGet",
+            "@request GET:/api/services/app/PatientExamination/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/PatientExamination/Get",
+          "returnType": "PatientExaminationDetailsDto",
+          "dependences": ["PatientExaminationDetailsDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         },
-        "fatherName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreatePatientExaminationInputDto",
+          "name": "patientExaminationCreate",
+          "pascalName": "PatientExaminationCreate",
+          "comments": [
+            "@tags PatientExamination",
+            "@name patientExaminationCreate",
+            "@request POST:/api/services/app/PatientExamination/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreatePatientExaminationInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreatePatientExaminationInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/PatientExamination/Create",
+          "returnType": "PatientExaminationDetailsDto",
+          "dependences": [
+            "CreatePatientExaminationInputDto",
+            "PatientExaminationDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
         },
-        "motherName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdatePatientExaminationInputDto",
+          "name": "patientExaminationUpdate",
+          "pascalName": "PatientExaminationUpdate",
+          "comments": [
+            "@tags PatientExamination",
+            "@name patientExaminationUpdate",
+            "@request PUT:/api/services/app/PatientExamination/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdatePatientExaminationInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdatePatientExaminationInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/PatientExamination/Update",
+          "returnType": "PatientExaminationDetailsDto",
+          "dependences": [
+            "UpdatePatientExaminationInputDto",
+            "PatientExaminationDetailsDto"
+          ],
+          "errorReturnType": "any",
+          "bodyArg": "data"
         },
-        "gender": {
-          "type": "integer",
-          "description": "Gender: 1- Male, 2- Female",
-          "format": "int32"
-        },
-        "bloodType": {
-          "type": "integer",
-          "description": "Blood Type: 1- A+,  2- A-,  3- B+,  4- B-,  5- AB+,  6- AB-,  7- O+,  8- O-",
-          "format": "int32"
-        },
-        "birthDate": { "type": "string", "format": "date-time" },
-        "birthCityIndexId": { "type": "integer", "format": "int32" },
-        "donorCode": { "maxLength": 50, "minLength": 0, "type": "string" },
-        "address": { "maxLength": 200, "minLength": 0, "type": "string" },
-        "mobileNumber": {
-          "maxLength": 50,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string"
-        },
-        "landLine": {
-          "maxLength": 50,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string",
-          "nullable": true
-        },
-        "nationalNumber": {
-          "maxLength": 11,
-          "minLength": 0,
-          "pattern": "^[0-9]*$",
-          "type": "string",
-          "nullable": true
-        },
-        "livingCityIndexId": { "type": "integer", "format": "int32" },
-        "relationIndexId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
+        {
+          "moduleName": "patientExamination",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "patientExaminationDelete",
+          "pascalName": "PatientExaminationDelete",
+          "comments": [
+            "@tags PatientExamination",
+            "@name patientExaminationDelete",
+            "@request DELETE:/api/services/app/PatientExamination/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/PatientExamination/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
         }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ConsultationDetailsDto",
-    "rawTypeData": {
-      "required": ["creationTime", "id", "replyStatus", "status", "type"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "subject": { "type": "string", "nullable": true },
-        "requiredWithIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "initialDiagnosis": { "type": "string", "nullable": true },
-        "consultantHospitalIndex": {
-          "$ref": "#/components/schemas/LiteEntityDto"
-        },
-        "consultantHospital": { "type": "string", "nullable": true },
-        "consultantDoctor": { "type": "string", "nullable": true },
-        "type": {
-          "type": "integer",
-          "description": "Consultation Type: 1- Medical/Legal, 2- Anesthetic, 3- Immunologic",
-          "format": "int32"
-        },
-        "typeIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "nameIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "creationTime": { "type": "string", "format": "date-time" },
-        "supervisoryDoctor": { "type": "string", "nullable": true },
-        "requesterDoctor": { "type": "string", "nullable": true },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
-        },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "replyStatus": {
-          "type": "integer",
-          "description": "Consultation Reply Status: 1- Pending, 2- Replied,",
-          "format": "int32"
-        },
-        "consultationReply": {
-          "$ref": "#/components/schemas/ConsultationReplyDto"
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "description": "Notes",
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreateConsultationInputDto",
-    "rawTypeData": {
-      "required": ["nameIndexId", "status", "subject", "typeIndexId"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "supervisoryDoctorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "requesterDoctorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "consultantHospitalIndexId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "consultantHospital": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        },
-        "consultantDoctor": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string",
-          "nullable": true
-        },
-        "subject": { "maxLength": 1000, "minLength": 0, "type": "string" },
-        "requiredWithIndexId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "typeIndexId": { "type": "integer", "format": "int32" },
-        "nameIndexId": { "type": "integer", "format": "int32" },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdateConsultationInputDto",
-    "rawTypeData": {
-      "required": ["id", "nameIndexId", "status", "subject", "typeIndexId"],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "supervisoryDoctorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "requesterDoctorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "consultantHospitalIndexId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "consultantHospital": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        },
-        "consultantDoctor": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string",
-          "nullable": true
-        },
-        "subject": { "maxLength": 1000, "minLength": 0, "type": "string" },
-        "requiredWithIndexId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "typeIndexId": { "type": "integer", "format": "int32" },
-        "nameIndexId": { "type": "integer", "format": "int32" },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ConsultationReportDto",
-    "rawTypeData": {
-      "type": "object",
-      "properties": { "reportUrl": { "type": "string", "nullable": true } },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ConsultationReplyInputDto",
-    "rawTypeData": {
-      "required": ["assets", "id", "recommendations"],
-      "type": "object",
-      "properties": {
-        "assets": { "maxLength": 1000, "minLength": 0, "type": "string" },
-        "recommendations": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string"
-        },
-        "attachments": {
-          "type": "array",
-          "items": { "type": "integer", "format": "int32" },
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "DocumentDto",
-    "rawTypeData": {
-      "required": ["creationTime", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "name": { "type": "string", "nullable": true },
-        "typeIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "attachment": { "$ref": "#/components/schemas/LiteAttachmentDto" },
-        "creationTime": { "type": "string", "format": "date-time" },
-        "createdBy": { "type": "string", "nullable": true },
-        "creatorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifierUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "description": "Notes",
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "DocumentDtoPagedResultDto",
-    "rawTypeData": {
-      "required": ["totalCount"],
-      "type": "object",
-      "properties": {
-        "totalCount": { "type": "integer", "format": "int32" },
-        "items": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/DocumentDto" },
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreateDocumentInputDto",
-    "rawTypeData": {
-      "required": ["attachmentId", "name", "typeIndexId"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "name": { "maxLength": 200, "minLength": 0, "type": "string" },
-        "typeIndexId": { "type": "integer", "format": "int32" },
-        "attachmentId": { "type": "integer", "format": "int32" },
-        "note": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdateDocumentInputDto",
-    "rawTypeData": {
-      "required": ["attachmentId", "id", "name", "typeIndexId"],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "name": { "maxLength": 200, "minLength": 0, "type": "string" },
-        "typeIndexId": { "type": "integer", "format": "int32" },
-        "attachmentId": { "type": "integer", "format": "int32" },
-        "note": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "ImmunologicConsultationDto",
-    "rawTypeData": {
-      "required": [
-        "caseId",
-        "creationTime",
-        "id",
-        "nonRelativeCompatibility",
-        "nonRelativeUcbUnitCompatibility",
-        "relativeCompatibility",
-        "replyStatus",
-        "siblingCompatibility",
-        "status",
-        "type"
       ],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32" },
-        "consultantDoctor": { "type": "string", "nullable": true },
-        "siblingCompatibility": { "type": "number", "format": "double" },
-        "relativeCompatibility": { "type": "number", "format": "double" },
-        "nonRelativeCompatibility": { "type": "number", "format": "double" },
-        "nonRelativeUcbUnitCompatibility": {
-          "type": "number",
-          "format": "double"
-        },
-        "type": {
-          "type": "integer",
-          "description": "Consultation Type: 1- Medical/Legal, 2- Anesthetic, 3- Immunologic",
-          "format": "int32"
-        },
-        "typeIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "nameIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "creationTime": { "type": "string", "format": "date-time" },
-        "supervisoryDoctor": { "type": "string", "nullable": true },
-        "requesterDoctor": { "type": "string", "nullable": true },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
-        },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "replyStatus": {
-          "type": "integer",
-          "description": "Consultation Reply Status: 1- Pending, 2- Replied,",
-          "format": "int32"
-        },
-        "consultationReply": {
-          "$ref": "#/components/schemas/ConsultationReplyDto"
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "description": "Notes",
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
+      "dependences": [
+        "PatientExaminationDtoPagedResultDto",
+        "PatientExaminationDetailsDto",
+        "CreatePatientExaminationInputDto",
+        "UpdatePatientExaminationInputDto"
+      ]
     },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreateImmunologicInputDto",
-    "rawTypeData": {
-      "required": [
-        "caseId",
-        "consultantDoctor",
-        "nameIndexId",
-        "nonRelativeCompatibility",
-        "nonRelativeUcbUnitCompatibility",
-        "relativeCompatibility",
-        "siblingCompatibility",
-        "status",
-        "typeIndexId"
+    {
+      "moduleName": "RadialImage",
+      "objName": "radialImage",
+      "routes": [
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
+          "bodyType": null,
+          "name": "radialImageGetAll",
+          "pascalName": "RadialImageGetAll",
+          "comments": [
+            "@tags RadialImage",
+            "@name radialImageGetAll",
+            "@request GET:/api/services/app/RadialImage/GetAll"
+          ],
+          "routeArgs": [
+            {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ CaseId?: number | null, DonorId?: number | null }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/RadialImage/GetAll",
+          "returnType": "RadialImageDtoPagedResultDto",
+          "dependences": ["RadialImageDtoPagedResultDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "radialImageGet",
+          "pascalName": "RadialImageGet",
+          "comments": [
+            "@tags RadialImage",
+            "@name radialImageGet",
+            "@request GET:/api/services/app/RadialImage/Get"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "get",
+          "path": "/api/services/app/RadialImage/Get",
+          "returnType": "RadialImageDto",
+          "dependences": ["RadialImageDto"],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        },
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "CreateRadialImageInputDto",
+          "name": "radialImageCreate",
+          "pascalName": "RadialImageCreate",
+          "comments": [
+            "@tags RadialImage",
+            "@name radialImageCreate",
+            "@request POST:/api/services/app/RadialImage/Create"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "CreateRadialImageInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "CreateRadialImageInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "post",
+          "path": "/api/services/app/RadialImage/Create",
+          "returnType": "RadialImageDto",
+          "dependences": ["CreateRadialImageInputDto", "RadialImageDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": false,
+          "hasFormDataParams": false,
+          "queryType": "{}",
+          "bodyType": "UpdateRadialImageInputDto",
+          "name": "radialImageUpdate",
+          "pascalName": "RadialImageUpdate",
+          "comments": [
+            "@tags RadialImage",
+            "@name radialImageUpdate",
+            "@request PUT:/api/services/app/RadialImage/Update"
+          ],
+          "routeArgs": [
+            {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateRadialImageInputDto"
+            },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "body": {
+              "name": "data",
+              "optional": false,
+              "type": "UpdateRadialImageInputDto"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "put",
+          "path": "/api/services/app/RadialImage/Update",
+          "returnType": "RadialImageDto",
+          "dependences": ["UpdateRadialImageInputDto", "RadialImageDto"],
+          "errorReturnType": "any",
+          "bodyArg": "data"
+        },
+        {
+          "moduleName": "radialImage",
+          "security": false,
+          "hasQuery": true,
+          "hasFormDataParams": null,
+          "queryType": "{ Id?: number }",
+          "bodyType": null,
+          "name": "radialImageDelete",
+          "pascalName": "RadialImageDelete",
+          "comments": [
+            "@tags RadialImage",
+            "@name radialImageDelete",
+            "@request DELETE:/api/services/app/RadialImage/Delete"
+          ],
+          "routeArgs": [
+            { "name": "query", "optional": true, "type": "{ Id?: number }" },
+            { "name": "params", "optional": true, "type": "any" }
+          ],
+          "specificArgs": {
+            "query": {
+              "name": "query",
+              "optional": true,
+              "type": "{ Id?: number }"
+            },
+            "requestParams": {
+              "name": "params",
+              "optional": true,
+              "type": "any"
+            }
+          },
+          "method": "delete",
+          "path": "/api/services/app/RadialImage/Delete",
+          "returnType": "any",
+          "dependences": [],
+          "errorReturnType": "any",
+          "bodyArg": "null"
+        }
       ],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32" },
-        "consultantDoctor": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "siblingCompatibility": { "type": "number", "format": "double" },
-        "relativeCompatibility": { "type": "number", "format": "double" },
-        "nonRelativeCompatibility": { "type": "number", "format": "double" },
-        "nonRelativeUcbUnitCompatibility": {
-          "type": "number",
-          "format": "double"
-        },
-        "typeIndexId": { "type": "integer", "format": "int32" },
-        "nameIndexId": { "type": "integer", "format": "int32" },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdateImmunologicInputDto",
-    "rawTypeData": {
-      "required": [
-        "caseId",
-        "consultantDoctor",
-        "id",
-        "nameIndexId",
-        "nonRelativeCompatibility",
-        "nonRelativeUcbUnitCompatibility",
-        "relativeCompatibility",
-        "siblingCompatibility",
-        "status",
-        "typeIndexId"
-      ],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "caseId": { "type": "integer", "format": "int32" },
-        "consultantDoctor": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "siblingCompatibility": { "type": "number", "format": "double" },
-        "relativeCompatibility": { "type": "number", "format": "double" },
-        "nonRelativeCompatibility": { "type": "number", "format": "double" },
-        "nonRelativeUcbUnitCompatibility": {
-          "type": "number",
-          "format": "double"
-        },
-        "typeIndexId": { "type": "integer", "format": "int32" },
-        "nameIndexId": { "type": "integer", "format": "int32" },
-        "status": {
-          "type": "integer",
-          "description": "Consultation Status: 1- Ambulatory, 2- Not Ambulatory",
-          "format": "int32"
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "LiteAnalysisDto",
-    "rawTypeData": {
-      "required": ["id"],
-      "type": "object",
-      "properties": {
-        "name": { "type": "string", "nullable": true },
-        "typeIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "PatientAnalysisDto",
-    "rawTypeData": {
-      "required": ["date", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "creatorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "createdBy": { "type": "string", "nullable": true },
-        "result": { "type": "string", "nullable": true },
-        "analysis": { "$ref": "#/components/schemas/LiteAnalysisDto" },
-        "date": { "type": "string", "format": "date-time" },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "PatientAnalysisDtoPagedResultDto",
-    "rawTypeData": {
-      "required": ["totalCount"],
-      "type": "object",
-      "properties": {
-        "totalCount": { "type": "integer", "format": "int32" },
-        "items": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/PatientAnalysisDto" },
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "PatientAnalysisDetailsDto",
-    "rawTypeData": {
-      "required": ["creationTime", "date", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "analysis": { "$ref": "#/components/schemas/LiteAnalysisDto" },
-        "submissionId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "samplerName": { "type": "string", "nullable": true },
-        "section": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "date": { "type": "string", "format": "date-time" },
-        "result": { "type": "string", "nullable": true },
-        "creationTime": { "type": "string", "format": "date-time" },
-        "creatorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "createdBy": { "type": "string", "nullable": true },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifierUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "description": "Notes",
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreatePatientAnalysisInputDto",
-    "rawTypeData": {
-      "required": ["analysisId", "date", "samplerName"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "analysisId": { "type": "integer", "format": "int32" },
-        "date": { "type": "string", "format": "date-time" },
-        "samplerName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "result": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        },
-        "submissionId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "note": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdatePatientAnalysisInputDto",
-    "rawTypeData": {
-      "required": ["analysisId", "date", "id", "samplerName"],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "analysisId": { "type": "integer", "format": "int32" },
-        "date": { "type": "string", "format": "date-time" },
-        "samplerName": {
-          "maxLength": 200,
-          "minLength": 0,
-          "pattern": "^[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FFa-zA-Z ]*$",
-          "type": "string"
-        },
-        "result": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        },
-        "submissionId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "note": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "PatientExaminationDto",
-    "rawTypeData": {
-      "required": ["date", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "doctorName": { "type": "string", "nullable": true },
-        "examination": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "section": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "creatorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "date": { "type": "string", "format": "date-time" },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "PatientExaminationDtoPagedResultDto",
-    "rawTypeData": {
-      "required": ["totalCount"],
-      "type": "object",
-      "properties": {
-        "totalCount": { "type": "integer", "format": "int32" },
-        "items": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/PatientExaminationDto" },
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "PatientExaminationDetailsDto",
-    "rawTypeData": {
-      "required": ["creationTime", "date", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "examination": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "date": { "type": "string", "format": "date-time" },
-        "section": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "generalCase": { "type": "string", "nullable": true },
-        "clinicalDevelopment": { "type": "string", "nullable": true },
-        "generalMeditation": { "type": "string", "nullable": true },
-        "submissionId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "creationTime": { "type": "string", "format": "date-time" },
-        "createdBy": { "type": "string", "nullable": true },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "description": "Notes",
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreatePatientExaminationInputDto",
-    "rawTypeData": {
-      "required": [
-        "clinicalDevelopment",
-        "date",
-        "examinationId",
-        "generalCase",
-        "generalMeditation"
-      ],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "examinationId": { "type": "integer", "format": "int32" },
-        "date": { "type": "string", "format": "date-time" },
-        "generalCase": { "maxLength": 1000, "minLength": 0, "type": "string" },
-        "clinicalDevelopment": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string"
-        },
-        "generalMeditation": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string"
-        },
-        "submissionId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "note": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdatePatientExaminationInputDto",
-    "rawTypeData": {
-      "required": [
-        "clinicalDevelopment",
-        "date",
-        "examinationId",
-        "generalCase",
-        "generalMeditation",
-        "id"
-      ],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "examinationId": { "type": "integer", "format": "int32" },
-        "date": { "type": "string", "format": "date-time" },
-        "generalCase": { "maxLength": 1000, "minLength": 0, "type": "string" },
-        "clinicalDevelopment": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string"
-        },
-        "generalMeditation": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string"
-        },
-        "submissionId": {
-          "type": "integer",
-          "format": "int32",
-          "nullable": true
-        },
-        "note": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "RadialImageDto",
-    "rawTypeData": {
-      "required": ["creationTime", "date", "id"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "nameIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "date": { "type": "string", "format": "date-time" },
-        "resultIndex": { "$ref": "#/components/schemas/LiteEntityDto" },
-        "notes": { "type": "string", "nullable": true },
-        "creationTime": { "type": "string", "format": "date-time" },
-        "creatorUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "createdBy": {
-          "type": "string",
-          "description": "RadialImage created by Doctor",
-          "nullable": true
-        },
-        "lastModificationTime": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        },
-        "lastModifierUserId": {
-          "type": "integer",
-          "format": "int64",
-          "nullable": true
-        },
-        "lastModifiedBy": { "type": "string", "nullable": true },
-        "attachments": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/LiteAttachmentDto" },
-          "nullable": true
-        },
-        "id": { "type": "integer", "format": "int32" }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "RadialImageDtoPagedResultDto",
-    "rawTypeData": {
-      "required": ["totalCount"],
-      "type": "object",
-      "properties": {
-        "totalCount": { "type": "integer", "format": "int32" },
-        "items": {
-          "type": "array",
-          "items": { "$ref": "#/components/schemas/RadialImageDto" },
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "CreateRadialImageInputDto",
-    "rawTypeData": {
-      "required": ["date", "nameIndexId", "resultIndexId"],
-      "type": "object",
-      "properties": {
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "nameIndexId": { "type": "integer", "format": "int32" },
-        "date": { "type": "string", "format": "date-time" },
-        "resultIndexId": { "type": "integer", "format": "int32" },
-        "attachments": {
-          "type": "array",
-          "items": { "type": "integer", "format": "int32" },
-          "nullable": true
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  },
-  {
-    "typeName": "UpdateRadialImageInputDto",
-    "rawTypeData": {
-      "required": ["date", "id", "nameIndexId", "resultIndexId"],
-      "type": "object",
-      "properties": {
-        "id": { "type": "integer", "format": "int32" },
-        "caseId": { "type": "integer", "format": "int32", "nullable": true },
-        "donorId": { "type": "integer", "format": "int32", "nullable": true },
-        "nameIndexId": { "type": "integer", "format": "int32" },
-        "date": { "type": "string", "format": "date-time" },
-        "resultIndexId": { "type": "integer", "format": "int32" },
-        "attachments": {
-          "type": "array",
-          "items": { "type": "integer", "format": "int32" },
-          "nullable": true
-        },
-        "notes": {
-          "maxLength": 1000,
-          "minLength": 0,
-          "type": "string",
-          "nullable": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "componentName": "schemas"
-  }
-]
+      "dependences": [
+        "RadialImageDtoPagedResultDto",
+        "RadialImageDto",
+        "CreateRadialImageInputDto",
+        "UpdateRadialImageInputDto"
+      ]
+    }
+  ]
+}

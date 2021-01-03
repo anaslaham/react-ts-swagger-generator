@@ -39,7 +39,6 @@ export const getModelType = (typeInfo) => {
     CONTENT_KEYWORD,
     resultContent
   );
-  console.log(dependences, "deps");
   return {
     typeIdentifier,
     name,

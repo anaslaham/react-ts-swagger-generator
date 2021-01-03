@@ -1,10 +1,101 @@
-interface IState {
-data?: any;
-loading?: boolean;
-error?: ApiError;
-details?: DetailsRes;
-detailsLoading?: boolean;
-detailsError?: ApiError;
-actionLoading?: boolean;
-totalCount?: number;
-}
+import React, { createContext ,useReducer } from "react";
+import ApiError from "../../../BaseApi/api-error";
+import { isError } from "../../../BaseApi/api-result"
+import {{objName}} from "../../services/{{moduleName}}"
+{{#dependences}}
+import { {{.}} } from "../../interfaces/{{.}}"
+{{/dependences}}
+
+interface IStateItem<dataType> {
+    data?: dataType;
+    loading?: boolean;
+    error?: ApiError;
+    }
+
+    interface IState {
+    {{#each routes}}
+    {{name}}:IStateItem<{{returnType}}>;
+        {{/each}}
+        }
+        interface IContext extends IState {
+        actions?:any;
+        }
+        type Actions =
+        | { type: "LOADING",name:string }
+        | { type: "ERROR"; payload: { error: ApiError },name:string }
+        | { type: "SUCCESS"; payload: { data:any,},name:string }
+
+
+        export interface {{moduleName}}ProviderProps {
+
+        }
+
+        const {{moduleName}}Provider: React.SFC<{{moduleName}}ProviderProps> = (props) => {
+
+            const reducer = (state: IState, action: Actions): IState => {
+            switch (action.type) {
+            case "LOADING":
+            return { ...state, [action.name]:{loading: true} };
+            case "ERROR":
+            return {
+            ...state,
+            [action.name]:{loading: false,
+            error: action.payload.error,}
+            };
+            case "SUCCESS":
+            return {
+            ...state,
+            [action.name]:{loading: false,
+            data: action.payload.data,}
+            };
+            default:
+            return state;
+            }
+            };
+            const initialState = {
+            {{#each routes}}
+            {{name}}:{
+            data:undefined,
+            loading:false,
+            error:undefined
+            },
+            {{/each}}
+            }
+            const [state, dispatch] = useReducer(reducer, initialState);
+
+            const {{moduleName}}Context = createContext<IContext>(initialState);
+
+                {{#each routes}}
+                {{#each comments }}
+                /* {{this}} */
+                {{/each}}
+                const {{name}} = async (
+                {{#if bodyType}}
+                body:{{bodyType}},
+                {{/if}}
+                {{#if hasQuery}}
+                params:{{queryType}}
+                {{/if}}
+                ) => {
+                dispatch({ type: "LOADING",name:"{{name}}" });
+                const result = await {{moduleName}}.{{name}}( {{#if hasQuery}}
+                params,
+                {{/if}}
+                {{#if bodyType}}
+                body,
+                {{/if}} );
+                if (isError(result)) {
+                dispatch({ type: "ERROR", payload: { error: result },name:"{{name}}" });
+                }else{
+                dispatch({ type: "SUCCESS", payload: { data: result },name:"{{name}}" });
+                }
+                }
+                {{/each}}
+
+                return ( <{{moduleName}}Context.Provider value={ { ...state , actions: { {{#each routes}} {{name}},
+                    {{/each}} } } }>
+                    {props.children}
+                </{{moduleName}}Context.Provider>);
+                }
+
+                export default {{moduleName}}Provider;
