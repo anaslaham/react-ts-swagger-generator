@@ -17,15 +17,13 @@ export const createFile = (
     .then(() => {
       fs.writeFile(`${pathTo}` + fileName, content, (err) => {
         if (err) throw err;
-        console.log("The file has been saved!");
+        console.log("created file ✅");
       });
     })
     .catch(console.error);
 };
 export const copyFolder = (pathTo: string, src: string) => {
   fs.mkdirSync(`${pathTo}`, { recursive: true });
-  console.log("copying");
-
   fs.promises
     .mkdir(`${pathTo}`, { recursive: true })
     .then(() => {

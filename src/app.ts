@@ -28,15 +28,23 @@ const { info, paths, servers, components } = schema;
 const componentsMap = createComponentsMap(components);
 const schemasMap = filterComponentsMap(componentsMap, "schemas");
 const parsedSchemas = parseSchemas(components);
-const routes = parseRoutes(schema, parsedSchemas, componentsMap, components, 3);
+const routes = parseRoutes(
+  schema,
+  parsedSchemas,
+  componentsMap,
+  components,
+  3,
+
+  2,
+  false
+);
 const groupedRoutes = groupRoutes(routes);
 createFile(`debug`, `/routes.json`, JSON.stringify(groupRoutes(routes)));
-const apiName: string = _.camelCase(schema.info.title) ?? "api";
+const apiName: string = _.camelCase(info.title) ?? "api";
 schemasMap.forEach((schema) => {
   const content = interfaceTemplate({
     modelTypes: getModelType(schema),
   });
-
   createFile(
     `output/${apiName}/interfaces/${getModelType(schema).name}`,
     `/index.ts`,
@@ -44,7 +52,7 @@ schemasMap.forEach((schema) => {
   );
   resetDependences();
 });
-copyFolder(`output/${apiName}`, "static");
+copyFolder(`output`, "static");
 createFile(
   `output/${apiName}/config`,
   `/index.ts`,

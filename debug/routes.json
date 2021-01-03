@@ -12,11 +12,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number }",
           "bodyType": null,
-          "name": "servicesAppAnestheticConsultationGetAllList",
-          "pascalName": "ServicesAppAnestheticConsultationGetAllList",
+          "name": "anestheticConsultationGetAll",
+          "pascalName": "AnestheticConsultationGetAll",
           "comments": [
             "@tags AnestheticConsultation",
-            "@name servicesAppAnestheticConsultationGetAllList",
+            "@name anestheticConsultationGetAll",
             "@summary Get a list of Anesthetic Consultations for specific Patient Case",
             "@request GET:/api/services/app/AnestheticConsultation/GetAll"
           ],
@@ -54,11 +54,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppAnestheticConsultationGetList",
-          "pascalName": "ServicesAppAnestheticConsultationGetList",
+          "name": "anestheticConsultationGet",
+          "pascalName": "AnestheticConsultationGet",
           "comments": [
             "@tags AnestheticConsultation",
-            "@name servicesAppAnestheticConsultationGetList",
+            "@name anestheticConsultationGet",
             "@summary Get Consultation of type \"Anesthetic\" by id.",
             "@request GET:/api/services/app/AnestheticConsultation/Get"
           ],
@@ -92,11 +92,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreateAnestheticInputDto",
-          "name": "servicesAppAnestheticConsultationCreateCreate",
-          "pascalName": "ServicesAppAnestheticConsultationCreateCreate",
+          "name": "anestheticConsultationCreate",
+          "pascalName": "AnestheticConsultationCreate",
           "comments": [
             "@tags AnestheticConsultation",
-            "@name servicesAppAnestheticConsultationCreateCreate",
+            "@name anestheticConsultationCreate",
             "@summary Create Consultation of type \"Anesthetic\" for a Patient Case.",
             "@request POST:/api/services/app/AnestheticConsultation/Create"
           ],
@@ -137,11 +137,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdateAnestheticInputDto",
-          "name": "servicesAppAnestheticConsultationUpdateUpdate",
-          "pascalName": "ServicesAppAnestheticConsultationUpdateUpdate",
+          "name": "anestheticConsultationUpdate",
+          "pascalName": "AnestheticConsultationUpdate",
           "comments": [
             "@tags AnestheticConsultation",
-            "@name servicesAppAnestheticConsultationUpdateUpdate",
+            "@name anestheticConsultationUpdate",
             "@summary Update Consultation of type \"Anesthetic\" for a Patient Case.",
             "@request PUT:/api/services/app/AnestheticConsultation/Update"
           ],
@@ -182,11 +182,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppAnestheticConsultationDeleteDelete",
-          "pascalName": "ServicesAppAnestheticConsultationDeleteDelete",
+          "name": "anestheticConsultationDelete",
+          "pascalName": "AnestheticConsultationDelete",
           "comments": [
             "@tags AnestheticConsultation",
-            "@name servicesAppAnestheticConsultationDeleteDelete",
+            "@name anestheticConsultationDelete",
             "@summary Delete Anesthetic Consultation by id.",
             "@request DELETE:/api/services/app/AnestheticConsultation/Delete"
           ],
@@ -232,11 +232,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppAttachmentGetList",
-          "pascalName": "ServicesAppAttachmentGetList",
+          "name": "attachmentGet",
+          "pascalName": "AttachmentGet",
           "comments": [
             "@tags Attachment",
-            "@name servicesAppAttachmentGetList",
+            "@name attachmentGet",
             "@request GET:/api/services/app/Attachment/Get"
           ],
           "routeArgs": [
@@ -269,11 +269,11 @@
           "hasFormDataParams": true,
           "queryType": "{}",
           "bodyType": "{ Name?: string | null, RefType?: number, Notes?: string | null, File: File }",
-          "name": "servicesAppAttachmentUploadCreate",
-          "pascalName": "ServicesAppAttachmentUploadCreate",
+          "name": "attachmentUpload",
+          "pascalName": "AttachmentUpload",
           "comments": [
             "@tags Attachment",
-            "@name servicesAppAttachmentUploadCreate",
+            "@name attachmentUpload",
             "@request POST:/api/services/app/Attachment/Upload"
           ],
           "routeArgs": [
@@ -317,11 +317,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number }",
           "bodyType": null,
-          "name": "servicesAppBloodDonorGetAllList",
-          "pascalName": "ServicesAppBloodDonorGetAllList",
+          "name": "bloodDonorGetAll",
+          "pascalName": "BloodDonorGetAll",
           "comments": [
             "@tags BloodDonor",
-            "@name servicesAppBloodDonorGetAllList",
+            "@name bloodDonorGetAll",
             "@request GET:/api/services/app/BloodDonor/GetAll"
           ],
           "routeArgs": [
@@ -358,11 +358,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppBloodDonorGetList",
-          "pascalName": "ServicesAppBloodDonorGetList",
+          "name": "bloodDonorGet",
+          "pascalName": "BloodDonorGet",
           "comments": [
             "@tags BloodDonor",
-            "@name servicesAppBloodDonorGetList",
+            "@name bloodDonorGet",
             "@request GET:/api/services/app/BloodDonor/Get"
           ],
           "routeArgs": [
@@ -395,11 +395,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreateBloodDonorInputDto",
-          "name": "servicesAppBloodDonorCreateCreate",
-          "pascalName": "ServicesAppBloodDonorCreateCreate",
+          "name": "bloodDonorCreate",
+          "pascalName": "BloodDonorCreate",
           "comments": [
             "@tags BloodDonor",
-            "@name servicesAppBloodDonorCreateCreate",
+            "@name bloodDonorCreate",
             "@request POST:/api/services/app/BloodDonor/Create"
           ],
           "routeArgs": [
@@ -436,11 +436,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdateBloodDonorInputDto",
-          "name": "servicesAppBloodDonorUpdateUpdate",
-          "pascalName": "ServicesAppBloodDonorUpdateUpdate",
+          "name": "bloodDonorUpdate",
+          "pascalName": "BloodDonorUpdate",
           "comments": [
             "@tags BloodDonor",
-            "@name servicesAppBloodDonorUpdateUpdate",
+            "@name bloodDonorUpdate",
             "@request PUT:/api/services/app/BloodDonor/Update"
           ],
           "routeArgs": [
@@ -489,11 +489,11 @@
           "hasFormDataParams": null,
           "queryType": "{}",
           "bodyType": null,
-          "name": "servicesAppCellDonorGetAllLiteList",
-          "pascalName": "ServicesAppCellDonorGetAllLiteList",
+          "name": "cellDonorGetAllLite",
+          "pascalName": "CellDonorGetAllLite",
           "comments": [
             "@tags CellDonor",
-            "@name servicesAppCellDonorGetAllLiteList",
+            "@name cellDonorGetAllLite",
             "@summary Get Cell Donors that are not related to patient case.",
             "@request GET:/api/services/app/CellDonor/GetAllLite"
           ],
@@ -519,11 +519,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number | null }",
           "bodyType": null,
-          "name": "servicesAppCellDonorGetAllList",
-          "pascalName": "ServicesAppCellDonorGetAllList",
+          "name": "cellDonorGetAll",
+          "pascalName": "CellDonorGetAll",
           "comments": [
             "@tags CellDonor",
-            "@name servicesAppCellDonorGetAllList",
+            "@name cellDonorGetAll",
             "@request GET:/api/services/app/CellDonor/GetAll"
           ],
           "routeArgs": [
@@ -560,11 +560,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppCellDonorGetList",
-          "pascalName": "ServicesAppCellDonorGetList",
+          "name": "cellDonorGet",
+          "pascalName": "CellDonorGet",
           "comments": [
             "@tags CellDonor",
-            "@name servicesAppCellDonorGetList",
+            "@name cellDonorGet",
             "@request GET:/api/services/app/CellDonor/Get"
           ],
           "routeArgs": [
@@ -597,11 +597,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreateCellDonorInputDto",
-          "name": "servicesAppCellDonorCreateCreate",
-          "pascalName": "ServicesAppCellDonorCreateCreate",
+          "name": "cellDonorCreate",
+          "pascalName": "CellDonorCreate",
           "comments": [
             "@tags CellDonor",
-            "@name servicesAppCellDonorCreateCreate",
+            "@name cellDonorCreate",
             "@request POST:/api/services/app/CellDonor/Create"
           ],
           "routeArgs": [
@@ -638,11 +638,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdateCellDonorInputDto",
-          "name": "servicesAppCellDonorUpdateUpdate",
-          "pascalName": "ServicesAppCellDonorUpdateUpdate",
+          "name": "cellDonorUpdate",
+          "pascalName": "CellDonorUpdate",
           "comments": [
             "@tags CellDonor",
-            "@name servicesAppCellDonorUpdateUpdate",
+            "@name cellDonorUpdate",
             "@request PUT:/api/services/app/CellDonor/Update"
           ],
           "routeArgs": [
@@ -692,11 +692,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
           "bodyType": null,
-          "name": "servicesAppConsultationGetAllList",
-          "pascalName": "ServicesAppConsultationGetAllList",
+          "name": "consultationGetAll",
+          "pascalName": "ConsultationGetAll",
           "comments": [
             "@tags Consultation",
-            "@name servicesAppConsultationGetAllList",
+            "@name consultationGetAll",
             "@summary Get a list of Medical/Legal Consultations for specific Patient Case or Donor",
             "@request GET:/api/services/app/Consultation/GetAll"
           ],
@@ -734,11 +734,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppConsultationGetList",
-          "pascalName": "ServicesAppConsultationGetList",
+          "name": "consultationGet",
+          "pascalName": "ConsultationGet",
           "comments": [
             "@tags Consultation",
-            "@name servicesAppConsultationGetList",
+            "@name consultationGet",
             "@summary Get Consultation of type \"Medical/Legal\" by id.",
             "@request GET:/api/services/app/Consultation/Get"
           ],
@@ -772,11 +772,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreateConsultationInputDto",
-          "name": "servicesAppConsultationCreateCreate",
-          "pascalName": "ServicesAppConsultationCreateCreate",
+          "name": "consultationCreate",
+          "pascalName": "ConsultationCreate",
           "comments": [
             "@tags Consultation",
-            "@name servicesAppConsultationCreateCreate",
+            "@name consultationCreate",
             "@summary Create Consultation of type \"Medical/Legal\" for a Patient Case or Donor.",
             "@request POST:/api/services/app/Consultation/Create"
           ],
@@ -817,11 +817,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdateConsultationInputDto",
-          "name": "servicesAppConsultationUpdateUpdate",
-          "pascalName": "ServicesAppConsultationUpdateUpdate",
+          "name": "consultationUpdate",
+          "pascalName": "ConsultationUpdate",
           "comments": [
             "@tags Consultation",
-            "@name servicesAppConsultationUpdateUpdate",
+            "@name consultationUpdate",
             "@summary Update Consultation of type \"Medical/Legal\" for a Patient Case or Donor.",
             "@request PUT:/api/services/app/Consultation/Update"
           ],
@@ -862,11 +862,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppConsultationDeleteDelete",
-          "pascalName": "ServicesAppConsultationDeleteDelete",
+          "name": "consultationDelete",
+          "pascalName": "ConsultationDelete",
           "comments": [
             "@tags Consultation",
-            "@name servicesAppConsultationDeleteDelete",
+            "@name consultationDelete",
             "@summary Delete Medical/Legal Consultation by id.",
             "@request DELETE:/api/services/app/Consultation/Delete"
           ],
@@ -900,11 +900,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppConsultationGetReportList",
-          "pascalName": "ServicesAppConsultationGetReportList",
+          "name": "consultationGetReport",
+          "pascalName": "ConsultationGetReport",
           "comments": [
             "@tags Consultation",
-            "@name servicesAppConsultationGetReportList",
+            "@name consultationGetReport",
             "@summary Get URL of the Printable Form for a Consultation of any type by id.",
             "@request GET:/api/services/app/Consultation/GetReport"
           ],
@@ -938,11 +938,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "ConsultationReplyInputDto",
-          "name": "servicesAppConsultationReplyCreate",
-          "pascalName": "ServicesAppConsultationReplyCreate",
+          "name": "consultationReply",
+          "pascalName": "ConsultationReply",
           "comments": [
             "@tags Consultation",
-            "@name servicesAppConsultationReplyCreate",
+            "@name consultationReply",
             "@summary Add a Reply for a Consultation of any type by id.",
             "@request POST:/api/services/app/Consultation/Reply"
           ],
@@ -994,11 +994,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
           "bodyType": null,
-          "name": "servicesAppDocumentGetAllList",
-          "pascalName": "ServicesAppDocumentGetAllList",
+          "name": "documentGetAll",
+          "pascalName": "DocumentGetAll",
           "comments": [
             "@tags Document",
-            "@name servicesAppDocumentGetAllList",
+            "@name documentGetAll",
             "@request GET:/api/services/app/Document/GetAll"
           ],
           "routeArgs": [
@@ -1035,11 +1035,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppDocumentGetList",
-          "pascalName": "ServicesAppDocumentGetList",
+          "name": "documentGet",
+          "pascalName": "DocumentGet",
           "comments": [
             "@tags Document",
-            "@name servicesAppDocumentGetList",
+            "@name documentGet",
             "@request GET:/api/services/app/Document/Get"
           ],
           "routeArgs": [
@@ -1072,11 +1072,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreateDocumentInputDto",
-          "name": "servicesAppDocumentCreateCreate",
-          "pascalName": "ServicesAppDocumentCreateCreate",
+          "name": "documentCreate",
+          "pascalName": "DocumentCreate",
           "comments": [
             "@tags Document",
-            "@name servicesAppDocumentCreateCreate",
+            "@name documentCreate",
             "@request POST:/api/services/app/Document/Create"
           ],
           "routeArgs": [
@@ -1113,11 +1113,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdateDocumentInputDto",
-          "name": "servicesAppDocumentUpdateUpdate",
-          "pascalName": "ServicesAppDocumentUpdateUpdate",
+          "name": "documentUpdate",
+          "pascalName": "DocumentUpdate",
           "comments": [
             "@tags Document",
-            "@name servicesAppDocumentUpdateUpdate",
+            "@name documentUpdate",
             "@request PUT:/api/services/app/Document/Update"
           ],
           "routeArgs": [
@@ -1154,11 +1154,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppDocumentDeleteDelete",
-          "pascalName": "ServicesAppDocumentDeleteDelete",
+          "name": "documentDelete",
+          "pascalName": "DocumentDelete",
           "comments": [
             "@tags Document",
-            "@name servicesAppDocumentDeleteDelete",
+            "@name documentDelete",
             "@request DELETE:/api/services/app/Document/Delete"
           ],
           "routeArgs": [
@@ -1203,11 +1203,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number }",
           "bodyType": null,
-          "name": "servicesAppImmunologicConsultationGetAllList",
-          "pascalName": "ServicesAppImmunologicConsultationGetAllList",
+          "name": "immunologicConsultationGetAll",
+          "pascalName": "ImmunologicConsultationGetAll",
           "comments": [
             "@tags ImmunologicConsultation",
-            "@name servicesAppImmunologicConsultationGetAllList",
+            "@name immunologicConsultationGetAll",
             "@summary Get a list of Immunologic Consultations for specific Patient Case",
             "@request GET:/api/services/app/ImmunologicConsultation/GetAll"
           ],
@@ -1245,11 +1245,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppImmunologicConsultationGetList",
-          "pascalName": "ServicesAppImmunologicConsultationGetList",
+          "name": "immunologicConsultationGet",
+          "pascalName": "ImmunologicConsultationGet",
           "comments": [
             "@tags ImmunologicConsultation",
-            "@name servicesAppImmunologicConsultationGetList",
+            "@name immunologicConsultationGet",
             "@summary Get Consultation of type \"Immunologic\" by id.",
             "@request GET:/api/services/app/ImmunologicConsultation/Get"
           ],
@@ -1283,11 +1283,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreateImmunologicInputDto",
-          "name": "servicesAppImmunologicConsultationCreateCreate",
-          "pascalName": "ServicesAppImmunologicConsultationCreateCreate",
+          "name": "immunologicConsultationCreate",
+          "pascalName": "ImmunologicConsultationCreate",
           "comments": [
             "@tags ImmunologicConsultation",
-            "@name servicesAppImmunologicConsultationCreateCreate",
+            "@name immunologicConsultationCreate",
             "@summary Create Consultation of type \"Immunologic\" for a Patient Case or Donor.",
             "@request POST:/api/services/app/ImmunologicConsultation/Create"
           ],
@@ -1328,11 +1328,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdateImmunologicInputDto",
-          "name": "servicesAppImmunologicConsultationUpdateUpdate",
-          "pascalName": "ServicesAppImmunologicConsultationUpdateUpdate",
+          "name": "immunologicConsultationUpdate",
+          "pascalName": "ImmunologicConsultationUpdate",
           "comments": [
             "@tags ImmunologicConsultation",
-            "@name servicesAppImmunologicConsultationUpdateUpdate",
+            "@name immunologicConsultationUpdate",
             "@summary Update Consultation of type \"Immunologic\" for a Patient Case or Donor.",
             "@request PUT:/api/services/app/ImmunologicConsultation/Update"
           ],
@@ -1373,11 +1373,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppImmunologicConsultationDeleteDelete",
-          "pascalName": "ServicesAppImmunologicConsultationDeleteDelete",
+          "name": "immunologicConsultationDelete",
+          "pascalName": "ImmunologicConsultationDelete",
           "comments": [
             "@tags ImmunologicConsultation",
-            "@name servicesAppImmunologicConsultationDeleteDelete",
+            "@name immunologicConsultationDelete",
             "@summary Delete Immunologic Consultation by id.",
             "@request DELETE:/api/services/app/ImmunologicConsultation/Delete"
           ],
@@ -1423,11 +1423,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
           "bodyType": null,
-          "name": "servicesAppPatientAnalysisGetAllList",
-          "pascalName": "ServicesAppPatientAnalysisGetAllList",
+          "name": "patientAnalysisGetAll",
+          "pascalName": "PatientAnalysisGetAll",
           "comments": [
             "@tags PatientAnalysis",
-            "@name servicesAppPatientAnalysisGetAllList",
+            "@name patientAnalysisGetAll",
             "@request GET:/api/services/app/PatientAnalysis/GetAll"
           ],
           "routeArgs": [
@@ -1464,11 +1464,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppPatientAnalysisGetList",
-          "pascalName": "ServicesAppPatientAnalysisGetList",
+          "name": "patientAnalysisGet",
+          "pascalName": "PatientAnalysisGet",
           "comments": [
             "@tags PatientAnalysis",
-            "@name servicesAppPatientAnalysisGetList",
+            "@name patientAnalysisGet",
             "@request GET:/api/services/app/PatientAnalysis/Get"
           ],
           "routeArgs": [
@@ -1501,11 +1501,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreatePatientAnalysisInputDto",
-          "name": "servicesAppPatientAnalysisCreateCreate",
-          "pascalName": "ServicesAppPatientAnalysisCreateCreate",
+          "name": "patientAnalysisCreate",
+          "pascalName": "PatientAnalysisCreate",
           "comments": [
             "@tags PatientAnalysis",
-            "@name servicesAppPatientAnalysisCreateCreate",
+            "@name patientAnalysisCreate",
             "@request POST:/api/services/app/PatientAnalysis/Create"
           ],
           "routeArgs": [
@@ -1545,11 +1545,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdatePatientAnalysisInputDto",
-          "name": "servicesAppPatientAnalysisUpdateUpdate",
-          "pascalName": "ServicesAppPatientAnalysisUpdateUpdate",
+          "name": "patientAnalysisUpdate",
+          "pascalName": "PatientAnalysisUpdate",
           "comments": [
             "@tags PatientAnalysis",
-            "@name servicesAppPatientAnalysisUpdateUpdate",
+            "@name patientAnalysisUpdate",
             "@request PUT:/api/services/app/PatientAnalysis/Update"
           ],
           "routeArgs": [
@@ -1589,11 +1589,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppPatientAnalysisDeleteDelete",
-          "pascalName": "ServicesAppPatientAnalysisDeleteDelete",
+          "name": "patientAnalysisDelete",
+          "pascalName": "PatientAnalysisDelete",
           "comments": [
             "@tags PatientAnalysis",
-            "@name servicesAppPatientAnalysisDeleteDelete",
+            "@name patientAnalysisDelete",
             "@request DELETE:/api/services/app/PatientAnalysis/Delete"
           ],
           "routeArgs": [
@@ -1638,11 +1638,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
           "bodyType": null,
-          "name": "servicesAppPatientExaminationGetAllList",
-          "pascalName": "ServicesAppPatientExaminationGetAllList",
+          "name": "patientExaminationGetAll",
+          "pascalName": "PatientExaminationGetAll",
           "comments": [
             "@tags PatientExamination",
-            "@name servicesAppPatientExaminationGetAllList",
+            "@name patientExaminationGetAll",
             "@request GET:/api/services/app/PatientExamination/GetAll"
           ],
           "routeArgs": [
@@ -1679,11 +1679,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppPatientExaminationGetList",
-          "pascalName": "ServicesAppPatientExaminationGetList",
+          "name": "patientExaminationGet",
+          "pascalName": "PatientExaminationGet",
           "comments": [
             "@tags PatientExamination",
-            "@name servicesAppPatientExaminationGetList",
+            "@name patientExaminationGet",
             "@request GET:/api/services/app/PatientExamination/Get"
           ],
           "routeArgs": [
@@ -1716,11 +1716,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreatePatientExaminationInputDto",
-          "name": "servicesAppPatientExaminationCreateCreate",
-          "pascalName": "ServicesAppPatientExaminationCreateCreate",
+          "name": "patientExaminationCreate",
+          "pascalName": "PatientExaminationCreate",
           "comments": [
             "@tags PatientExamination",
-            "@name servicesAppPatientExaminationCreateCreate",
+            "@name patientExaminationCreate",
             "@request POST:/api/services/app/PatientExamination/Create"
           ],
           "routeArgs": [
@@ -1760,11 +1760,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdatePatientExaminationInputDto",
-          "name": "servicesAppPatientExaminationUpdateUpdate",
-          "pascalName": "ServicesAppPatientExaminationUpdateUpdate",
+          "name": "patientExaminationUpdate",
+          "pascalName": "PatientExaminationUpdate",
           "comments": [
             "@tags PatientExamination",
-            "@name servicesAppPatientExaminationUpdateUpdate",
+            "@name patientExaminationUpdate",
             "@request PUT:/api/services/app/PatientExamination/Update"
           ],
           "routeArgs": [
@@ -1804,11 +1804,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppPatientExaminationDeleteDelete",
-          "pascalName": "ServicesAppPatientExaminationDeleteDelete",
+          "name": "patientExaminationDelete",
+          "pascalName": "PatientExaminationDelete",
           "comments": [
             "@tags PatientExamination",
-            "@name servicesAppPatientExaminationDeleteDelete",
+            "@name patientExaminationDelete",
             "@request DELETE:/api/services/app/PatientExamination/Delete"
           ],
           "routeArgs": [
@@ -1853,11 +1853,11 @@
           "hasFormDataParams": null,
           "queryType": "{ CaseId?: number | null, DonorId?: number | null }",
           "bodyType": null,
-          "name": "servicesAppRadialImageGetAllList",
-          "pascalName": "ServicesAppRadialImageGetAllList",
+          "name": "radialImageGetAll",
+          "pascalName": "RadialImageGetAll",
           "comments": [
             "@tags RadialImage",
-            "@name servicesAppRadialImageGetAllList",
+            "@name radialImageGetAll",
             "@request GET:/api/services/app/RadialImage/GetAll"
           ],
           "routeArgs": [
@@ -1894,11 +1894,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppRadialImageGetList",
-          "pascalName": "ServicesAppRadialImageGetList",
+          "name": "radialImageGet",
+          "pascalName": "RadialImageGet",
           "comments": [
             "@tags RadialImage",
-            "@name servicesAppRadialImageGetList",
+            "@name radialImageGet",
             "@request GET:/api/services/app/RadialImage/Get"
           ],
           "routeArgs": [
@@ -1931,11 +1931,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "CreateRadialImageInputDto",
-          "name": "servicesAppRadialImageCreateCreate",
-          "pascalName": "ServicesAppRadialImageCreateCreate",
+          "name": "radialImageCreate",
+          "pascalName": "RadialImageCreate",
           "comments": [
             "@tags RadialImage",
-            "@name servicesAppRadialImageCreateCreate",
+            "@name radialImageCreate",
             "@request POST:/api/services/app/RadialImage/Create"
           ],
           "routeArgs": [
@@ -1972,11 +1972,11 @@
           "hasFormDataParams": false,
           "queryType": "{}",
           "bodyType": "UpdateRadialImageInputDto",
-          "name": "servicesAppRadialImageUpdateUpdate",
-          "pascalName": "ServicesAppRadialImageUpdateUpdate",
+          "name": "radialImageUpdate",
+          "pascalName": "RadialImageUpdate",
           "comments": [
             "@tags RadialImage",
-            "@name servicesAppRadialImageUpdateUpdate",
+            "@name radialImageUpdate",
             "@request PUT:/api/services/app/RadialImage/Update"
           ],
           "routeArgs": [
@@ -2013,11 +2013,11 @@
           "hasFormDataParams": null,
           "queryType": "{ Id?: number }",
           "bodyType": null,
-          "name": "servicesAppRadialImageDeleteDelete",
-          "pascalName": "ServicesAppRadialImageDeleteDelete",
+          "name": "radialImageDelete",
+          "pascalName": "RadialImageDelete",
           "comments": [
             "@tags RadialImage",
-            "@name servicesAppRadialImageDeleteDelete",
+            "@name radialImageDelete",
             "@request DELETE:/api/services/app/RadialImage/Delete"
           ],
           "routeArgs": [

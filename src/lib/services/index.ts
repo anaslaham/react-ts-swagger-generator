@@ -146,25 +146,50 @@ const getErrorReturnType = (responses, parsedSchemas, operationId) =>
       .filter((type) => type !== DEFAULT_PRIMITIVE_TYPE)
   ).join(" | ") || DEFAULT_PRIMITIVE_TYPE;
 
-const createCustomOperationId = (method, route, moduleName) => {
+const createCustomOperationId = (
+  method,
+  route,
+  moduleName,
+  startIndex: number,
+  endIndex: number,
+  addMethodName
+) => {
   const hasPathInserts = /\{(\w){1,}\}/g.test(route);
-  const splitedRouteBySlash = _.compact(
+  let splitedRouteBySlash = _.compact(
     _.replace(route, /\{(\w){1,}\}/g, "").split("/")
   );
+  splitedRouteBySlash = splitedRouteBySlash.slice(startIndex, endIndex);
   const routeParts = (splitedRouteBySlash.length > 1
     ? splitedRouteBySlash.splice(1)
     : splitedRouteBySlash
   ).join("_");
-  return routeParts.length > 3 && methodAliases[method]
-    ? methodAliases[method](routeParts, hasPathInserts)
-    : _.camelCase(_.lowerCase(method) + "_" + [moduleName].join("_")) ||
-        "index";
+  return addMethodName
+    ? routeParts.length > 3 && methodAliases[method]
+      ? methodAliases[method](routeParts, hasPathInserts)
+      : _.camelCase(_.lowerCase(method) + "_" + [moduleName].join("_")) ||
+        "index"
+    : _.camelCase(routeParts);
 };
 
-const getRouteName = (operationId, method, route, moduleName) => {
+const getRouteName = (
+  operationId,
+  method,
+  route,
+  moduleName,
+  startIndex,
+  endIndex,
+  addMethodName
+) => {
   if (operationId) return operationId;
   if (route === "/") return `${_.lowerCase(method)}Root`;
-  return createCustomOperationId(method, route, moduleName);
+  return createCustomOperationId(
+    method,
+    route,
+    moduleName,
+    startIndex,
+    endIndex,
+    addMethodName
+  );
 };
 
 const getRouteParams = (parameters, where) =>
@@ -224,7 +249,10 @@ export const parseRoutes = (
   parsedSchemas,
   componentsMap,
   components,
-  moduleNameIndex
+  moduleNameIndex,
+  namingStartIndex: number,
+  addMethodName: boolean,
+  namingEndIndex?: number
 ) =>
   _.entries(paths).reduce((routes, [route, requestInfoByMethodsMap]) => {
     if (route.startsWith("x-")) return routes;
@@ -262,7 +290,15 @@ export const parseRoutes = (
           _.compact(_.split(route, "/"))[moduleNameIndex]
         );
 
-        const routeName = getRouteName(operationId, method, route, moduleName);
+        const routeName = getRouteName(
+          operationId,
+          method,
+          route,
+          moduleName,
+          namingStartIndex,
+          namingEndIndex,
+          addMethodName
+        );
         const name = _.camelCase(routeName);
 
         const responsesTypes = getTypesFromResponses(

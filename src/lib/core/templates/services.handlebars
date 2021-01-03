@@ -1,6 +1,6 @@
 import config from "../../config";
-import ApiResult from "../../baseApi/api-result"
-import ApiService from "../../baseApi/api-service"
+import ApiResult from "../../../baseApi/api-result"
+import ApiService from "../../../baseApi/api-service"
 {{#dependences}}
 import { {{.}} } from "../../interfaces/{{.}}"
 {{/dependences}}
@@ -32,4 +32,4 @@ params:{{queryType}}
     {{/each}}
     }
     const {{objName}} = new {{moduleName}}();
-    export default {{moduleName}}
+    export default {{objName}}
