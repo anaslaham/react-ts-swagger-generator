@@ -27,19 +27,7 @@ const servicesTemplate = getTemplate("services");
 const { info, paths, servers, components } = schema;
 const componentsMap = createComponentsMap(components);
 const schemasMap = filterComponentsMap(componentsMap, "schemas");
-const parsedSchemas = parseSchemas(components);
-const routes = parseRoutes(
-  schema,
-  parsedSchemas,
-  componentsMap,
-  components,
-  3,
-
-  2,
-  false
-);
-const groupedRoutes = groupRoutes(routes);
-createFile(`debug`, `/routes.json`, JSON.stringify(groupRoutes(routes)));
+createFile(`debug`, `/routes.json`, JSON.stringify(schemasMap));
 const apiName: string = _.camelCase(info.title) ?? "api";
 schemasMap.forEach((schema) => {
   const content = interfaceTemplate({
@@ -52,6 +40,17 @@ schemasMap.forEach((schema) => {
   );
   resetDependences();
 });
+const parsedSchemas = parseSchemas(components);
+const routes = parseRoutes(
+  schema,
+  parsedSchemas,
+  componentsMap,
+  components,
+  3,
+  2,
+  false
+);
+const groupedRoutes = groupRoutes(routes);
 copyFolder(`output`, "static");
 createFile(
   `output/${apiName}/config`,
