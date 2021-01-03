@@ -1,0 +1,17 @@
+import React from 'react'
+{{#each providers}}
+import {{this}}Provider from "../contexts/{{this}}"
+{{/each}}
+const {{name}}Providers: React.FC = (props) => {
+return ( <>
+    {{#each providers}}
+    <{{this}}Provider>
+        {{/each}}
+        {props.children}
+        {{#each reversed}}
+    </{{this}}Provider>
+    {{/each}}
+</> );
+}
+
+export default {{name}}Providers;

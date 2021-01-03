@@ -1,3 +1,4 @@
+import { parseProviders } from "./lib/providers/index";
 import fs from "fs";
 import _ from "lodash";
 import { createFile, copyFolder } from "./lib/core/files";
@@ -25,6 +26,7 @@ addToConfig({
 const interfaceTemplate = getTemplate("interface");
 const servicesTemplate = getTemplate("services");
 const contextTemplate = getTemplate("context");
+const providersTemplate = getTemplate("providers");
 const { info, paths, servers, components } = schema;
 const componentsMap = createComponentsMap(components);
 const schemasMap = filterComponentsMap(componentsMap, "schemas");
@@ -77,3 +79,11 @@ groupedRoutes.combined.forEach((route) => {
     format(content, prettierConfig)
   );
 });
+
+const providers = parseProviders(groupedRoutes.combined, apiName);
+const content = providersTemplate(providers);
+createFile(
+  `output/${apiName}/providers`,
+  `/index.tsx`,
+  format(content, prettierConfig)
+);
