@@ -4,9 +4,7 @@
   "description": "a cli that generates ts interface and a react context from a swagger json file",
   "main": "dist/app.js",
   "scripts": {
-    "start": "webpack && node dist/bundle.js",
-    "watch": "tsc -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack && node dist/bundle.js"
   },
   "keywords": [
     "cli",
