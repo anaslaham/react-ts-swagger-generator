@@ -51,7 +51,6 @@ const routes = parseRoutes(
   false
 );
 const groupedRoutes = groupRoutes(routes);
-createFile(`debug`, `/routes.json`, JSON.stringify(groupedRoutes));
 copyFolder(`output`, "static");
 createFile(
   `output/${apiName}/config`,
