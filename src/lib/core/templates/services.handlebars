@@ -1,5 +1,4 @@
 import config from "../../config";
-import ApiResult from "../../../baseApi/api-result"
 import ApiService from "../../../baseApi/api-service"
 {{#dependences}}
 import { {{.}} } from "../../interfaces/{{.}}"
@@ -12,14 +11,14 @@ super({ baseURL: config.baseUrl,headers:config.headers });
 {{#each comments }}
 /* {{this}} */
 {{/each}}
-public {{name}} (
+public {{name}} = (
 {{#if bodyType}}
 body:{{bodyType}},
 {{/if}}
 {{#if hasQuery}}
 params:{{queryType}}
 {{/if}}
-): Promise<ApiResult<{{returnType}}>> {
+): Promise<{{returnType}}> => {
     return this.{{method}}("{{path}}", {
     {{#if hasQuery}}
     params,

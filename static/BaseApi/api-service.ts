@@ -1,7 +1,6 @@
 import ApiProvider from "./api-provider";
 import RequestConfig from "./request-config";
 import HttpMethod from "./http-method";
-import ApiResult from "./api-result";
 
 export default class ApiService {
   private provider: ApiProvider;
@@ -10,15 +9,12 @@ export default class ApiService {
     this.provider = new ApiProvider(config);
   }
 
-  protected get<T>(url: string, config?: RequestConfig): Promise<ApiResult<T>> {
+  protected get<T>(url: string, config?: RequestConfig): Promise<T> {
     const method = HttpMethod.GET;
     return this.provider.request({ method, url, ...config });
   }
 
-  protected delete<T>(
-    url: string,
-    config?: RequestConfig
-  ): Promise<ApiResult<T>> {
+  protected delete<T>(url: string, config?: RequestConfig): Promise<T> {
     const method = HttpMethod.DELETE;
     return this.provider.request({ method, url, ...config });
   }
@@ -27,7 +23,7 @@ export default class ApiService {
     url: string,
     data?: any,
     config?: RequestConfig
-  ): Promise<ApiResult<T>> {
+  ): Promise<T> {
     const method = HttpMethod.POST;
     return this.provider.request({
       method,
@@ -41,7 +37,7 @@ export default class ApiService {
     url: string,
     data?: any,
     config?: RequestConfig
-  ): Promise<ApiResult<T>> {
+  ): Promise<T> {
     const method = HttpMethod.PUT;
     return this.provider.request({
       method,
@@ -55,7 +51,7 @@ export default class ApiService {
     url: string,
     data?: any,
     config?: RequestConfig
-  ): Promise<ApiResult<T>> {
+  ): Promise<T> {
     const method = HttpMethod.PATCH;
     return this.provider.request({
       method,
