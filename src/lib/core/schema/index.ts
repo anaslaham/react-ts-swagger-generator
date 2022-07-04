@@ -62,7 +62,7 @@ const checkAndAddNull = (schema, value) => {
 
 export const getRefType = (property) => {
   const ref = property && property["$ref"];
-  return (ref && config.componentsMap[ref]) |;
+  return ref && config.componentsMap[ref];
 };
 export const getType = (schema) => {
   if (!schema) return DEFAULT_PRIMITIVE_TYPE;
