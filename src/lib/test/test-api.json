@@ -1,213 +1,44 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "DesignerMarket API",
-    "description": "DesignerMarket",
-    "contact": {
-      "name": "DesignerMarket",
-      "url": "https://twitter.com/aspboilerplate",
-      "email": ""
-    },
-    "license": {
-      "name": "MIT License",
-      "url": "https://github.com/aspnetboilerplate/aspnetboilerplate/blob/dev/LICENSE"
-    },
+    "title": "NuclearMedicine API - Reports & Notifications & Messages",
+    "description": "Web API endpoints for Reports & Notifications & Messages",
     "version": "v1"
   },
   "paths": {
-    "/api/services/app/Account/Register": {
-      "post": {
-        "tags": ["Account"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterInput"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterInput"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterInput"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterInput"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisterOutput"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisterOutput"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisterOutput"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Account/RegisterDesigner": {
-      "post": {
-        "tags": ["Account"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterDesignerInput"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterDesignerInput"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterDesignerInput"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterDesignerInput"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisterOutput"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisterOutput"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisterOutput"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Account/ChangeLanguage": {
-      "post": {
-        "tags": ["Account"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserLanguageDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserLanguageDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserLanguageDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserLanguageDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Account/ChangePassword": {
-      "post": {
-        "tags": ["Account"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Category/Get": {
+    "/api/services/app/Message/GetAllAdmins": {
       "get": {
-        "tags": ["Category"],
+        "tags": ["Message"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/services/app/Message/GetAllPatients": {
+      "get": {
+        "tags": ["Message"],
         "parameters": [
           {
-            "name": "Id",
+            "name": "supervisoryDoctorUserId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -221,17 +52,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
                 }
               }
             }
@@ -239,265 +70,12 @@
         }
       }
     },
-    "/api/services/app/Category/Create": {
-      "post": {
-        "tags": ["Category"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCategoryDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCategoryDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCategoryDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCategoryDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Category/Update": {
-      "put": {
-        "tags": ["Category"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCategoryDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCategoryDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCategoryDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCategoryDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Category/GetAll": {
+    "/api/services/app/Message/GetAllSupervisoryDoctors": {
       "get": {
-        "tags": ["Category"],
+        "tags": ["Message"],
         "parameters": [
           {
-            "name": "IsMain",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "nullable": true
-            }
-          },
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Category/Delete": {
-      "delete": {
-        "tags": ["Category"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/City/GetAll": {
-      "get": {
-        "tags": ["City"],
-        "parameters": [
-          {
-            "name": "CountryId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            }
-          },
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CityDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CityDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CityDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Color/Get": {
-      "get": {
-        "tags": ["Color"],
-        "parameters": [
-          {
-            "name": "Id",
+            "name": "patientId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -511,17 +89,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
+                  "$ref": "#/components/schemas/ValueLabelDtoListResultDto"
                 }
               }
             }
@@ -529,1721 +107,42 @@
         }
       }
     },
-    "/api/services/app/Color/GetAll": {
+    "/api/services/app/Message/GetAll": {
       "get": {
-        "tags": ["Color"],
+        "tags": ["Message"],
         "parameters": [
           {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Color/Create": {
-      "post": {
-        "tags": ["Color"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateColorDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateColorDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateColorDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateColorDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Color/Update": {
-      "put": {
-        "tags": ["Color"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateColorDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateColorDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateColorDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateColorDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ColorDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Color/Delete": {
-      "delete": {
-        "tags": ["Color"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Configuration/ChangeUserCurrency": {
-      "post": {
-        "tags": ["Configuration"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserCurrencyInput"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserCurrencyInput"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserCurrencyInput"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserCurrencyInput"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Configuration/ChangeUserLanguage": {
-      "post": {
-        "tags": ["Configuration"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserLanguageInput"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserLanguageInput"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserLanguageInput"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeUserLanguageInput"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Configuration/GetSettings": {
-      "get": {
-        "tags": ["Configuration"],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SettingDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SettingDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SettingDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Consumer/SwitchActivation": {
-      "put": {
-        "tags": ["Consumer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/EntityDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EntityDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EntityDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/EntityDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Consumer/GetProfile": {
-      "get": {
-        "tags": ["Consumer"],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerProfileDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerProfileDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerProfileDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Consumer/UpdateProfile": {
-      "put": {
-        "tags": ["Consumer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConsumerProfileInputDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConsumerProfileInputDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConsumerProfileInputDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConsumerProfileInputDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerProfileDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerProfileDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerProfileDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Consumer/UpdateAddress": {
-      "put": {
-        "tags": ["Consumer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConsumerAddressInputDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConsumerAddressInputDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConsumerAddressInputDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConsumerAddressInputDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerAddressDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerAddressDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerAddressDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Consumer/Get": {
-      "get": {
-        "tags": ["Consumer"],
-        "parameters": [
-          {
-            "name": "Id",
+            "name": "UserId",
             "in": "query",
             "schema": {
               "type": "integer",
               "format": "int64"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Consumer/GetAll": {
-      "get": {
-        "tags": ["Consumer"],
-        "parameters": [
+          },
           {
-            "name": "SkipCount",
+            "name": "Object",
             "in": "query",
+            "description": "Message Object:\r\n1- Consultation\r\n2- Emergency\r\n3- Complaint\r\n4- Requirement\r\n5- Notice\r\n6- Appointment Cancellation",
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "MaxResultCount",
+            "name": "State",
             "in": "query",
+            "description": "0- UnRead\r\n1- Read",
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
               "type": "integer",
               "format": "int32"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsumerDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Consumer/Delete": {
-      "delete": {
-        "tags": ["Consumer"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Country/GetAll": {
-      "get": {
-        "tags": ["Country"],
-        "parameters": [
+          },
           {
             "name": "Sorting",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CountryDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CountryDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CountryDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Coupon/Create": {
-      "post": {
-        "tags": ["Coupon"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCouponDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCouponDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCouponDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCouponDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Coupon/Update": {
-      "put": {
-        "tags": ["Coupon"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCouponDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCouponDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCouponDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCouponDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Coupon/Get": {
-      "get": {
-        "tags": ["Coupon"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Coupon/GetAll": {
-      "get": {
-        "tags": ["Coupon"],
-        "parameters": [
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CouponDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Coupon/Delete": {
-      "delete": {
-        "tags": ["Coupon"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/SwitchActivation": {
-      "put": {
-        "tags": ["Designer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/EntityDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EntityDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EntityDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/EntityDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/SwitchCollaboration": {
-      "post": {
-        "tags": ["Designer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Int64EntityDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Int64EntityDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Int64EntityDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Int64EntityDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/GetProfile": {
-      "get": {
-        "tags": ["Designer"],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/UpdateProfile": {
-      "put": {
-        "tags": ["Designer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/DesignerProfileInputDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DesignerProfileInputDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DesignerProfileInputDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/DesignerProfileInputDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/UpdateLogo": {
-      "put": {
-        "tags": ["Designer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/UpdateBackgroundImage": {
-      "put": {
-        "tags": ["Designer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/RemoveLogo": {
-      "delete": {
-        "tags": ["Designer"],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/RemoveBackgroundImage": {
-      "delete": {
-        "tags": ["Designer"],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/Get": {
-      "get": {
-        "tags": ["Designer"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/GetAll": {
-      "get": {
-        "tags": ["Designer"],
-        "parameters": [
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DesignerDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Designer/Delete": {
-      "delete": {
-        "tags": ["Designer"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Fabric/Get": {
-      "get": {
-        "tags": ["Fabric"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Fabric/GetAll": {
-      "get": {
-        "tags": ["Fabric"],
-        "parameters": [
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Fabric/Create": {
-      "post": {
-        "tags": ["Fabric"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateFabricDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateFabricDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateFabricDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateFabricDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Fabric/Update": {
-      "put": {
-        "tags": ["Fabric"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateFabricDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateFabricDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateFabricDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateFabricDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FabricDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Fabric/Delete": {
-      "delete": {
-        "tags": ["Fabric"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Image/UploadImage": {
-      "post": {
-        "tags": ["Image"],
-        "summary": "Upload single image, and return Url.",
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "required": ["File", "Type"],
-                "type": "object",
-                "properties": {
-                  "File": {
-                    "type": "string",
-                    "description": "Accepted Image Types: 1- Jpeg, 2- Png, 3- Jpg",
-                    "format": "binary"
-                  },
-                  "Type": {
-                    "type": "integer",
-                    "description": "Possible Values: 0 = Banner, 1 = Product, 2 = Category, 3 = DesignerLogo, 4 = DesignerBackground, 5 = ModelImage, \r\n6 = ModelPortfolio, 7 = PhotographerImage, 8 = PhotographerPortfolio",
-                    "format": "int32"
-                  }
-                }
-              },
-              "encoding": {
-                "File": {
-                  "style": "form"
-                },
-                "Type": {
-                  "style": "form"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ItemImageDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ItemImageDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ItemImageDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/GetMyProfile": {
-      "get": {
-        "tags": ["Model"],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/Get": {
-      "get": {
-        "tags": ["Model"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/UpdateMyImage": {
-      "put": {
-        "tags": ["Model"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/UpdateMyProfile": {
-      "put": {
-        "tags": ["Model"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateModelDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateModelDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateModelDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateModelDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModelDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/AddClient": {
-      "post": {
-        "tags": ["Model"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddClientDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddClientDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddClientDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddClientDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/RemoveClient": {
-      "delete": {
-        "tags": ["Model"],
-        "parameters": [
-          {
-            "name": "Name",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/AddPortfolioImage": {
-      "post": {
-        "tags": ["Model"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/RemovePortfolioImage": {
-      "delete": {
-        "tags": ["Model"],
-        "parameters": [
-          {
-            "name": "ImageUrl",
-            "in": "query",
-            "required": true,
             "schema": {
               "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Model/GetAll": {
-      "get": {
-        "tags": ["Model"],
-        "parameters": [
-          {
-            "name": "IsMain",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "nullable": true
-            }
-          },
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
           },
           {
             "name": "SkipCount",
@@ -2272,17 +171,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModelDtoPagedResultDto"
+                  "$ref": "#/components/schemas/MessageDtoPagedResultDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModelDtoPagedResultDto"
+                  "$ref": "#/components/schemas/MessageDtoPagedResultDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModelDtoPagedResultDto"
+                  "$ref": "#/components/schemas/MessageDtoPagedResultDto"
                 }
               }
             }
@@ -2290,301 +189,276 @@
         }
       }
     },
-    "/api/services/app/Model/Delete": {
-      "delete": {
-        "tags": ["Model"],
+    "/api/services/app/Message/GetAllMyMessages": {
+      "get": {
+        "tags": ["Message"],
         "parameters": [
           {
-            "name": "Id",
+            "name": "UserId",
             "in": "query",
             "schema": {
               "type": "integer",
               "format": "int64"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Photographer/GetMyProfile": {
-      "get": {
-        "tags": ["Photographer"],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Photographer/Get": {
-      "get": {
-        "tags": ["Photographer"],
-        "parameters": [
+          },
           {
-            "name": "Id",
+            "name": "Object",
             "in": "query",
+            "description": "Message Object:\r\n1- Consultation\r\n2- Emergency\r\n3- Complaint\r\n4- Requirement\r\n5- Notice\r\n6- Appointment Cancellation",
             "schema": {
               "type": "integer",
-              "format": "int64"
+              "format": "int32"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Photographer/UpdateMyImage": {
-      "put": {
-        "tags": ["Photographer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Photographer/UpdateMyProfile": {
-      "put": {
-        "tags": ["Photographer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePhotographerDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePhotographerDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePhotographerDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePhotographerDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PhotographerDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Photographer/AddClient": {
-      "post": {
-        "tags": ["Photographer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddClientDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddClientDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddClientDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddClientDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Photographer/RemoveClient": {
-      "delete": {
-        "tags": ["Photographer"],
-        "parameters": [
+          },
           {
-            "name": "Name",
+            "name": "State",
             "in": "query",
+            "description": "0- UnRead\r\n1- Read",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "integer",
+              "format": "int32"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Photographer/AddPortfolioImage": {
-      "post": {
-        "tags": ["Photographer"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImageUrlDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Photographer/RemovePortfolioImage": {
-      "delete": {
-        "tags": ["Photographer"],
-        "parameters": [
+          },
           {
-            "name": "ImageUrl",
+            "name": "Sorting",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "SkipCount",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaxResultCount",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDtoPagedResultDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDtoPagedResultDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDtoPagedResultDto"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/services/app/Photographer/GetAll": {
+    "/api/services/app/Message/Get": {
       "get": {
-        "tags": ["Photographer"],
+        "tags": ["Message"],
         "parameters": [
           {
-            "name": "IsMain",
+            "name": "Id",
             "in": "query",
             "schema": {
-              "type": "boolean",
-              "nullable": true
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/services/app/Message/Create": {
+      "post": {
+        "tags": ["Message"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageInputDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageInputDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageInputDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageInputDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/services/app/Message/Reply": {
+      "post": {
+        "tags": ["Message"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReplyMessageInputDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReplyMessageInputDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReplyMessageInputDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReplyMessageInputDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDetailsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/services/app/Message/GetNumberOfUnReadMessages": {
+      "get": {
+        "tags": ["Message"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/services/app/Notification/GetUserNotifications": {
+      "get": {
+        "tags": ["Notification"],
+        "parameters": [
+          {
+            "name": "State",
+            "in": "query",
+            "description": "State: 0- Unread, 1- Read",
+            "schema": {
+              "enum": [0, 1],
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
             "name": "Sorting",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -2614,17 +488,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PhotographerDtoPagedResultDto"
+                  "$ref": "#/components/schemas/NotificationDtoPagedResultDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PhotographerDtoPagedResultDto"
+                  "$ref": "#/components/schemas/NotificationDtoPagedResultDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PhotographerDtoPagedResultDto"
+                  "$ref": "#/components/schemas/NotificationDtoPagedResultDto"
                 }
               }
             }
@@ -2632,306 +506,63 @@
         }
       }
     },
-    "/api/services/app/Photographer/Delete": {
-      "delete": {
-        "tags": ["Photographer"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
+    "/api/services/app/Notification/GetNumberOfUnReadUserNotifications": {
+      "get": {
+        "tags": ["Notification"],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/services/app/Product/Create": {
+    "/api/services/app/Notification/MarkNotificationAsRead": {
       "post": {
-        "tags": ["Product"],
+        "tags": ["Notification"],
         "requestBody": {
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProductDto"
+                "$ref": "#/components/schemas/GuidEntityDto"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProductDto"
+                "$ref": "#/components/schemas/GuidEntityDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProductDto"
+                "$ref": "#/components/schemas/GuidEntityDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProductDto"
+                "$ref": "#/components/schemas/GuidEntityDto"
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Product/Get": {
-      "get": {
-        "tags": ["Product"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Product/GetAll": {
-      "get": {
-        "tags": ["Product"],
-        "parameters": [
-          {
-            "name": "MinPrice",
-            "in": "query",
-            "schema": {
-              "type": "number",
-              "format": "double",
-              "nullable": true
-            }
-          },
-          {
-            "name": "MaxPrice",
-            "in": "query",
-            "schema": {
-              "type": "number",
-              "format": "double",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SizeId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            }
-          },
-          {
-            "name": "FabricId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            }
-          },
-          {
-            "name": "DesignerId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int64",
-              "nullable": true
-            }
-          },
-          {
-            "name": "ColorId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            }
-          },
-          {
-            "name": "OrderId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            }
-          },
-          {
-            "name": "OnlyFavoriteProducts",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "nullable": true
-            }
-          },
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Product/Update": {
-      "put": {
-        "tags": ["Product"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProductDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProductDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProductDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProductDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Product/Delete": {
-      "delete": {
-        "tags": ["Product"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -2939,158 +570,33 @@
         }
       }
     },
-    "/api/services/app/Role/Create": {
+    "/api/services/app/Notification/TestNotifyUsers": {
       "post": {
-        "tags": ["Role"],
+        "tags": ["Notification"],
         "requestBody": {
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateRoleDto"
+                "$ref": "#/components/schemas/TestNotificationInputDto"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateRoleDto"
+                "$ref": "#/components/schemas/TestNotificationInputDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateRoleDto"
+                "$ref": "#/components/schemas/TestNotificationInputDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateRoleDto"
+                "$ref": "#/components/schemas/TestNotificationInputDto"
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Role/GetRoles": {
-      "get": {
-        "tags": ["Role"],
-        "parameters": [
-          {
-            "name": "Permission",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleListDtoListResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleListDtoListResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleListDtoListResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Role/Update": {
-      "put": {
-        "tags": ["Role"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RoleDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RoleDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RoleDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RoleDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Role/Delete": {
-      "delete": {
-        "tags": ["Role"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -3098,36 +604,10 @@
         }
       }
     },
-    "/api/services/app/Role/GetAllPermissions": {
+    "/api/services/app/PostCategory/Get": {
       "get": {
-        "tags": ["Role"],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionDtoListResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionDtoListResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionDtoListResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Role/GetRoleForEdit": {
-      "get": {
-        "tags": ["Role"],
+        "tags": ["PostCategory"],
+        "summary": "Get PostCategory Details ById",
         "parameters": [
           {
             "name": "Id",
@@ -3144,17 +624,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetRoleForEditOutput"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetRoleForEditOutput"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetRoleForEditOutput"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               }
             }
@@ -3162,53 +642,16 @@
         }
       }
     },
-    "/api/services/app/Role/Get": {
+    "/api/services/app/PostCategory/GetAll": {
       "get": {
-        "tags": ["Role"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Role/GetAll": {
-      "get": {
-        "tags": ["Role"],
+        "tags": ["PostCategory"],
+        "summary": "Get All Post Categories Details",
         "parameters": [
           {
             "name": "Keyword",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -3238,17 +681,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoleDtoPagedResultDto"
+                  "$ref": "#/components/schemas/LitePostCategoryDtoPagedResultDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoleDtoPagedResultDto"
+                  "$ref": "#/components/schemas/LitePostCategoryDtoPagedResultDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoleDtoPagedResultDto"
+                  "$ref": "#/components/schemas/LitePostCategoryDtoPagedResultDto"
                 }
               }
             }
@@ -3256,150 +699,31 @@
         }
       }
     },
-    "/api/services/app/Session/GetCurrentLoginInformations": {
-      "get": {
-        "tags": ["Session"],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetCurrentLoginInformationsOutput"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetCurrentLoginInformationsOutput"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetCurrentLoginInformationsOutput"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Size/Get": {
-      "get": {
-        "tags": ["Size"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Size/GetAll": {
-      "get": {
-        "tags": ["Size"],
-        "parameters": [
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SizeDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SizeDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SizeDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Size/Create": {
+    "/api/services/app/PostCategory/Create": {
       "post": {
-        "tags": ["Size"],
+        "tags": ["PostCategory"],
+        "summary": "Add New Post Category Details",
         "requestBody": {
+          "description": "",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSizeDto"
+                "$ref": "#/components/schemas/CreatePostCategoryDto"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSizeDto"
+                "$ref": "#/components/schemas/CreatePostCategoryDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSizeDto"
+                "$ref": "#/components/schemas/CreatePostCategoryDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSizeDto"
+                "$ref": "#/components/schemas/CreatePostCategoryDto"
               }
             }
           }
@@ -3410,17 +734,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               }
             }
@@ -3428,29 +752,31 @@
         }
       }
     },
-    "/api/services/app/Size/Update": {
+    "/api/services/app/PostCategory/Update": {
       "put": {
-        "tags": ["Size"],
+        "tags": ["PostCategory"],
+        "summary": "Update Post Category Details",
         "requestBody": {
+          "description": "",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSizeDto"
+                "$ref": "#/components/schemas/UpdatePostCategoryDto"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSizeDto"
+                "$ref": "#/components/schemas/UpdatePostCategoryDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSizeDto"
+                "$ref": "#/components/schemas/UpdatePostCategoryDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSizeDto"
+                "$ref": "#/components/schemas/UpdatePostCategoryDto"
               }
             }
           }
@@ -3461,17 +787,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SizeDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               }
             }
@@ -3479,9 +805,10 @@
         }
       }
     },
-    "/api/services/app/Size/Delete": {
+    "/api/services/app/PostCategory/Delete": {
       "delete": {
-        "tags": ["Size"],
+        "tags": ["PostCategory"],
+        "summary": "Delete Post Category Details",
         "parameters": [
           {
             "name": "Id",
@@ -3499,80 +826,31 @@
         }
       }
     },
-    "/api/services/app/Staff/Create": {
-      "post": {
-        "tags": ["Staff"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Staff/Update": {
+    "/api/services/app/PostCategory/SwitchActivation": {
       "put": {
-        "tags": ["Staff"],
+        "tags": ["PostCategory"],
+        "summary": "Switch Activation Of A Post Category",
         "requestBody": {
+          "description": "",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserDto"
+                "$ref": "#/components/schemas/PostCategorySwitchActivationDto"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserDto"
+                "$ref": "#/components/schemas/PostCategorySwitchActivationDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserDto"
+                "$ref": "#/components/schemas/PostCategorySwitchActivationDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserDto"
+                "$ref": "#/components/schemas/PostCategorySwitchActivationDto"
               }
             }
           }
@@ -3583,17 +861,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDto"
+                  "$ref": "#/components/schemas/PostCategoryDetailsDto"
                 }
               }
             }
@@ -3601,87 +879,17 @@
         }
       }
     },
-    "/api/services/app/Staff/Delete": {
-      "delete": {
-        "tags": ["Staff"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/services/app/Staff/ResetPassword": {
-      "post": {
-        "tags": ["Staff"],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResetPasswordDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResetPasswordDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResetPasswordDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResetPasswordDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/Staff/Get": {
+    "/api/services/app/Posts/Get": {
       "get": {
-        "tags": ["Staff"],
+        "tags": ["Posts"],
+        "summary": "Get Post Details ById",
         "parameters": [
           {
             "name": "Id",
             "in": "query",
             "schema": {
               "type": "integer",
-              "format": "int64"
+              "format": "int32"
             }
           }
         ],
@@ -3691,17 +899,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               }
             }
@@ -3709,24 +917,16 @@
         }
       }
     },
-    "/api/services/app/Staff/GetAll": {
+    "/api/services/app/Posts/GetAll": {
       "get": {
-        "tags": ["Staff"],
+        "tags": ["Posts"],
+        "summary": "Get All Posts Details",
         "parameters": [
           {
             "name": "Keyword",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "IsActive",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -3756,17 +956,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDtoPagedResultDto"
+                  "$ref": "#/components/schemas/LitePostsDtoPagedResultDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDtoPagedResultDto"
+                  "$ref": "#/components/schemas/LitePostsDtoPagedResultDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDtoPagedResultDto"
+                  "$ref": "#/components/schemas/LitePostsDtoPagedResultDto"
                 }
               }
             }
@@ -3774,123 +974,31 @@
         }
       }
     },
-    "/api/services/app/StaticContent/Get": {
-      "get": {
-        "tags": ["StaticContent"],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/StaticContent/GetAll": {
-      "get": {
-        "tags": ["StaticContent"],
-        "parameters": [
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaticContentDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaticContentDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StaticContentDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/services/app/StaticContent/Create": {
+    "/api/services/app/Posts/Create": {
       "post": {
-        "tags": ["StaticContent"],
+        "tags": ["Posts"],
+        "summary": "Add New Post Details",
         "requestBody": {
+          "description": "",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStaticContentDto"
+                "$ref": "#/components/schemas/CreatePostsDto"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStaticContentDto"
+                "$ref": "#/components/schemas/CreatePostsDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStaticContentDto"
+                "$ref": "#/components/schemas/CreatePostsDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStaticContentDto"
+                "$ref": "#/components/schemas/CreatePostsDto"
               }
             }
           }
@@ -3901,17 +1009,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               }
             }
@@ -3919,29 +1027,31 @@
         }
       }
     },
-    "/api/services/app/StaticContent/Update": {
+    "/api/services/app/Posts/Update": {
       "put": {
-        "tags": ["StaticContent"],
+        "tags": ["Posts"],
+        "summary": "Update Post Details",
         "requestBody": {
+          "description": "",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStaticContentDto"
+                "$ref": "#/components/schemas/UpdatePostsDto"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStaticContentDto"
+                "$ref": "#/components/schemas/UpdatePostsDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStaticContentDto"
+                "$ref": "#/components/schemas/UpdatePostsDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStaticContentDto"
+                "$ref": "#/components/schemas/UpdatePostsDto"
               }
             }
           }
@@ -3952,17 +1062,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StaticContentDto"
+                  "$ref": "#/components/schemas/PostsDetailsDto"
                 }
               }
             }
@@ -3970,9 +1080,10 @@
         }
       }
     },
-    "/api/services/app/StaticContent/Delete": {
+    "/api/services/app/Posts/Delete": {
       "delete": {
-        "tags": ["StaticContent"],
+        "tags": ["Posts"],
+        "summary": "Delete Post Details",
         "parameters": [
           {
             "name": "Id",
@@ -3986,6 +1097,59 @@
         "responses": {
           "200": {
             "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/services/app/Posts/SwitchActivation": {
+      "put": {
+        "tags": ["Posts"],
+        "summary": "Switch Activation Of A Post",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostsSwitchActivationDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostsSwitchActivationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostsSwitchActivationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostsSwitchActivationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostsDetailsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostsDetailsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostsDetailsDto"
+                }
+              }
+            }
           }
         }
       }
@@ -4040,2147 +1204,99 @@
           }
         }
       }
+    },
+    "/api/TokenAuth/GetExternalAuthenticationProviders": {
+      "get": {
+        "tags": ["TokenAuth"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExternalLoginProviderInfoModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExternalLoginProviderInfoModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExternalLoginProviderInfoModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TokenAuth/ExternalAuthenticate": {
+      "post": {
+        "tags": ["TokenAuth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalAuthenticateModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalAuthenticateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalAuthenticateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalAuthenticateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalAuthenticateResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalAuthenticateResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalAuthenticateResultModel"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "RegisterInput": {
-        "required": ["emailAddress", "name", "password", "type"],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "surname": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "emailAddress": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "format": "email"
-          },
-          "password": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string"
-          },
-          "type": {
-            "type": "integer",
-            "description": "1: Customer, 2: Photographer, 3: Model",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegisterOutput": {
-        "type": "object",
-        "properties": {
-          "canLogin": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegisterDesignerInput": {
-        "required": [
-          "boutiqueInstagramAccount",
-          "boutiqueName",
-          "brandDescription",
-          "cityId",
-          "emailAddress",
-          "name",
-          "phoneNumber",
-          "surname"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "surname": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "emailAddress": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "format": "email"
-          },
-          "phoneNumber": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string"
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "boutiqueName": {
-            "type": "string"
-          },
-          "boutiqueInstagramAccount": {
-            "type": "string"
-          },
-          "brandDescription": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChangeUserLanguageDto": {
-        "required": ["languageName"],
-        "type": "object",
-        "properties": {
-          "languageName": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChangePasswordDto": {
-        "required": ["currentPassword", "newPassword"],
-        "type": "object",
-        "properties": {
-          "currentPassword": {
-            "type": "string"
-          },
-          "newPassword": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CategoryDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "imageUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "parent": {
-            "$ref": "#/components/schemas/CategoryDto"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateCategoryDto": {
-        "required": ["enName"],
-        "type": "object",
-        "properties": {
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string"
-          },
-          "imageUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateCategoryDto": {
-        "required": ["enName"],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string"
-          },
-          "imageUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CategoryDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CategoryDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CityDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "countryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CityDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CityDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ColorDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ColorDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ColorDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateColorDto": {
-        "required": ["code", "enName"],
-        "type": "object",
-        "properties": {
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "code": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateColorDto": {
-        "required": ["code", "enName"],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "code": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChangeUserCurrencyInput": {
-        "required": ["code"],
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "Possible values: SAR, KWD, AUD, BHD, OMR"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChangeUserLanguageInput": {
-        "required": ["language"],
-        "type": "object",
-        "properties": {
-          "language": {
-            "type": "integer",
-            "description": "0: ar, 1: en",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SettingDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EntityDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ConsumerAddressDto": {
-        "type": "object",
-        "properties": {
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "street": {
-            "type": "string",
-            "nullable": true
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "cityName": {
-            "type": "string",
-            "nullable": true
-          },
-          "countryId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "countryName": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ConsumerProfileDto": {
-        "type": "object",
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "customerAddress": {
-            "$ref": "#/components/schemas/ConsumerAddressDto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ConsumerProfileInputDto": {
-        "required": ["email", "firstName", "lastName"],
-        "type": "object",
-        "properties": {
-          "firstName": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "lastName": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "email": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "format": "email"
-          },
-          "phoneNumber": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ConsumerAddressInputDto": {
-        "type": "object",
-        "properties": {
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "street": {
-            "type": "string",
-            "nullable": true
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ConsumerDto": {
-        "required": ["emailAddress", "name", "surname"],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "surname": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "emailAddress": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "format": "email"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "creationTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "street": {
-            "type": "string",
-            "nullable": true
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "cityName": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ConsumerDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsumerDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CountryDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CountryDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CountryDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateCouponDto": {
-        "required": ["amount"],
-        "type": "object",
-        "properties": {
-          "amount": {
-            "minimum": 0,
-            "type": "number",
-            "format": "double"
-          },
-          "expiryDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CouponDto": {
-        "type": "object",
-        "properties": {
-          "amount": {
-            "type": "number",
-            "format": "double"
-          },
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "expiryDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateCouponDto": {
-        "required": ["amount"],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "amount": {
-            "minimum": 0,
-            "type": "number",
-            "format": "double"
-          },
-          "expiryDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CouponDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CouponDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Int64EntityDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DesignerDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "surname": {
-            "type": "string",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "isFeatured": {
-            "type": "boolean"
-          },
-          "isOpenForCollaboration": {
-            "type": "boolean"
-          },
-          "isLaunched": {
-            "type": "boolean"
-          },
-          "boutiqueName": {
-            "type": "string",
-            "nullable": true
-          },
-          "boutiqueInstagramAccount": {
-            "type": "string",
-            "nullable": true
-          },
-          "brandDescription": {
-            "type": "string",
-            "nullable": true
-          },
-          "contactInfo": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "creationTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "cityName": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DesignerProfileInputDto": {
-        "required": [
-          "boutiqueInstagramAccount",
-          "boutiqueName",
-          "brandDescription",
-          "cityId",
-          "emailAddress",
-          "name",
-          "phoneNumber",
-          "surname"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "surname": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "emailAddress": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "format": "email"
-          },
-          "phoneNumber": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string"
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "boutiqueName": {
-            "type": "string"
-          },
-          "boutiqueInstagramAccount": {
-            "type": "string"
-          },
-          "brandDescription": {
-            "type": "string"
-          },
-          "contactInfo": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ImageUrlDto": {
-        "required": ["imageUrl"],
-        "type": "object",
-        "properties": {
-          "imageUrl": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DesignerDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DesignerDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FabricDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FabricDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FabricDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateFabricDto": {
-        "type": "object",
-        "properties": {
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateFabricDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ItemImageDto": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "description": "Uploaded Image Url",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SkinColor": {
-        "enum": [0, 1, 2],
-        "type": "integer",
-        "format": "int32"
-      },
-      "ModelDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "imageUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "age": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "weight": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "skinColor": {
-            "$ref": "#/components/schemas/SkinColor"
-          },
-          "preferenceId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "preferenceName": {
-            "type": "string",
-            "nullable": true
-          },
-          "about": {
-            "type": "string",
-            "nullable": true
-          },
-          "clients": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateModelDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "nullable": true
-          },
-          "age": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "weight": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "skinColor": {
-            "type": "integer",
-            "description": "0 = Dark, 1 = White, 2 = Brown,",
-            "format": "int32"
-          },
-          "preferenceId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "about": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AddClientDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ModelDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ModelDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PhotographerDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "imageUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "age": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "preferenceId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "preferenceName": {
-            "type": "string",
-            "nullable": true
-          },
-          "about": {
-            "type": "string",
-            "nullable": true
-          },
-          "clients": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdatePhotographerDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "nullable": true
-          },
-          "age": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "weight": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "skinColor": {
-            "type": "integer",
-            "description": "0 = Dark, 1 = White, 2 = Brown,",
-            "format": "int32"
-          },
-          "preferenceId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "about": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PhotographerDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PhotographerDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateProductDto": {
-        "type": "object",
-        "properties": {
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "salePrice": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "enDescription": {
-            "type": "string",
-            "nullable": true
-          },
-          "arDescription": {
-            "type": "string",
-            "nullable": true
-          },
-          "weightInGrams": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "length": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "width": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "fabricId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "colors": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
-          },
-          "sizes": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LiteEntityDto": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "label": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProductDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "salePrice": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "enDescription": {
-            "type": "string",
-            "nullable": true
-          },
-          "arDescription": {
-            "type": "string",
-            "nullable": true
-          },
-          "weightInGrams": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "length": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "width": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "designerId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "designerName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fabricId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fabricName": {
-            "type": "string",
-            "nullable": true
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "categoryName": {
-            "type": "string",
-            "nullable": true
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "colors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LiteEntityDto"
-            },
-            "nullable": true
-          },
-          "sizes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LiteEntityDto"
-            },
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProductDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateProductDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "salePrice": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "enDescription": {
-            "type": "string",
-            "nullable": true
-          },
-          "arDescription": {
-            "type": "string",
-            "nullable": true
-          },
-          "weightInGrams": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "length": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "width": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "fabricId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "colors": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
-          },
-          "sizes": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateRoleDto": {
-        "required": ["displayName", "name"],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string"
-          },
-          "displayName": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "normalizedName": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "maxLength": 5000,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "grantedPermissions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RoleDto": {
-        "required": ["displayName", "name"],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string"
-          },
-          "displayName": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "normalizedName": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "maxLength": 5000,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "grantedPermissions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RoleListDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "isStatic": {
-            "type": "boolean"
-          },
-          "isDefault": {
-            "type": "boolean"
-          },
-          "creationTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RoleListDtoListResultDto": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RoleListDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PermissionDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PermissionDtoListResultDto": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PermissionDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RoleEditDto": {
-        "required": ["displayName", "name"],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string"
-          },
-          "displayName": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "description": {
-            "maxLength": 5000,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "isStatic": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FlatPermissionDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetRoleForEditOutput": {
-        "type": "object",
-        "properties": {
-          "role": {
-            "$ref": "#/components/schemas/RoleEditDto"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FlatPermissionDto"
-            },
-            "nullable": true
-          },
-          "grantedPermissionNames": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RoleDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RoleDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ApplicationInfoDto": {
-        "type": "object",
-        "properties": {
-          "version": {
-            "type": "string",
-            "nullable": true
-          },
-          "releaseDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "features": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "boolean"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserLoginInfoDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "surname": {
-            "type": "string",
-            "nullable": true
-          },
-          "userName": {
-            "type": "string",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TenantLoginInfoDto": {
-        "type": "object",
-        "properties": {
-          "tenancyName": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetCurrentLoginInformationsOutput": {
-        "type": "object",
-        "properties": {
-          "application": {
-            "$ref": "#/components/schemas/ApplicationInfoDto"
-          },
-          "user": {
-            "$ref": "#/components/schemas/UserLoginInfoDto"
-          },
-          "tenant": {
-            "$ref": "#/components/schemas/TenantLoginInfoDto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SizeDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SizeDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SizeDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateSizeDto": {
-        "type": "object",
-        "properties": {
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateSizeDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "arName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enName": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateUserDto": {
-        "required": ["emailAddress", "name", "password", "surname"],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "surname": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "emailAddress": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "format": "email"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "roleNames": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "password": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserDto": {
-        "required": ["emailAddress", "name", "surname"],
-        "type": "object",
-        "properties": {
-          "name": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "surname": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "emailAddress": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "format": "email"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "lastLoginTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "creationTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "roleNames": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateUserDto": {
-        "required": ["emailAddress", "name", "surname"],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "password": {
-            "maxLength": 32,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "surname": {
-            "maxLength": 64,
-            "minLength": 0,
-            "type": "string"
-          },
-          "emailAddress": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "format": "email"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "roleNames": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ResetPasswordDto": {
-        "required": ["adminPassword", "newPassword", "userId"],
-        "type": "object",
-        "properties": {
-          "adminPassword": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "newPassword": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "StaticContentDto": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "content": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "StaticContentDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StaticContentDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateStaticContentDto": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "content": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateStaticContentDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "content": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "AuthenticateModel": {
-        "required": ["password", "userNameOrEmailAddress"],
+        "required": ["password", "rememberClient", "userNameOrEmailAddress"],
         "type": "object",
         "properties": {
           "userNameOrEmailAddress": {
@@ -6200,6 +1316,7 @@
         "additionalProperties": false
       },
       "AuthenticateResultModel": {
+        "required": ["expireInSeconds", "userId"],
         "type": "object",
         "properties": {
           "accessToken": {
@@ -6218,9 +1335,723 @@
             "type": "integer",
             "format": "int64"
           },
-          "discriminator": {
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMessageInputDto": {
+        "required": ["description", "object", "toUserId"],
+        "type": "object",
+        "properties": {
+          "toUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "object": {
+            "type": "integer",
+            "description": "Message Object:\r\n1- Consultation\r\n2- Emergency\r\n3- Complaint\r\n4- Requirement\r\n5- Notice\r\n6- Appointment Cancellation",
+            "format": "int32"
+          },
+          "title": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string"
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePostCategoryDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePostsDto": {
+        "required": ["postCategoryId"],
+        "type": "object",
+        "properties": {
+          "arTitle": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "enTitle": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "arDescription": {
+            "maxLength": 1500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "enDescription": {
+            "maxLength": 1500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "postCategoryId": {
             "type": "integer",
             "format": "int32"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalAuthenticateModel": {
+        "required": ["authProvider", "providerAccessCode", "providerKey"],
+        "type": "object",
+        "properties": {
+          "authProvider": {
+            "maxLength": 128,
+            "minLength": 0,
+            "type": "string"
+          },
+          "providerKey": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string"
+          },
+          "providerAccessCode": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalAuthenticateResultModel": {
+        "required": ["expireInSeconds", "waitingForActivation"],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "encryptedAccessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "expireInSeconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "waitingForActivation": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalLoginProviderInfoModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GuidEntityDto": {
+        "required": ["id"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LiteAttachmentDto": {
+        "required": ["id"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LiteEntityDto": {
+        "required": ["value"],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LitePostCategoryDto": {
+        "required": ["id", "isActive"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LitePostCategoryDtoPagedResultDto": {
+        "required": ["totalCount"],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LitePostCategoryDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LitePostsDto": {
+        "required": ["creationTime", "id", "isActive"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "arTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "enTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "arDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "enDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "postCategory": {
+            "$ref": "#/components/schemas/LiteEntityDto"
+          },
+          "creationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LitePostsDtoPagedResultDto": {
+        "required": ["totalCount"],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LitePostsDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MessageDetailsDto": {
+        "required": ["creationTime", "id", "object", "state", "type"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fromUser": {
+            "$ref": "#/components/schemas/LiteEntityDto"
+          },
+          "toUser": {
+            "$ref": "#/components/schemas/LiteEntityDto"
+          },
+          "object": {
+            "type": "integer",
+            "description": "Message Object:\r\n1- Consultation\r\n2- Emergency\r\n3- Complaint\r\n4- Requirement\r\n5- Notice\r\n6- Appointment Cancellation",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "creationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "state": {
+            "type": "integer",
+            "description": "0- UnRead\r\n1- Read",
+            "format": "int32"
+          },
+          "type": {
+            "type": "integer",
+            "description": "1- Basic\r\n2- Replay",
+            "format": "int32"
+          },
+          "relatedMessages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageDetailsDto"
+            },
+            "nullable": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiteAttachmentDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MessageDto": {
+        "required": [
+          "creationTime",
+          "id",
+          "object",
+          "relatedMessageCount",
+          "state",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fromUser": {
+            "$ref": "#/components/schemas/LiteEntityDto"
+          },
+          "toUser": {
+            "$ref": "#/components/schemas/LiteEntityDto"
+          },
+          "object": {
+            "type": "integer",
+            "description": "Message Object:\r\n1- Consultation\r\n2- Emergency\r\n3- Complaint\r\n4- Requirement\r\n5- Notice\r\n6- Appointment Cancellation",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "creationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "state": {
+            "type": "integer",
+            "description": "0- UnRead\r\n1- Read",
+            "format": "int32"
+          },
+          "type": {
+            "type": "integer",
+            "description": "1- Basic\r\n2- Replay",
+            "format": "int32"
+          },
+          "relatedMessageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lastRelatedMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MessageDtoPagedResultDto": {
+        "required": ["totalCount"],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotificationDto": {
+        "required": ["dateTime", "id", "state", "type"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "notificationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "enum": [1, 2, 3, 4, 5, 6, 7],
+            "type": "integer",
+            "description": "Type of Notification:\r\n1",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "relatedId": {
+            "type": "integer",
+            "description": "Id of related entity if exists. Depending on Type of the notification:",
+            "format": "int64",
+            "nullable": true
+          },
+          "state": {
+            "enum": [0, 1],
+            "type": "integer",
+            "description": "State: 0- Unread, 1- Read",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotificationDtoPagedResultDto": {
+        "required": ["totalCount"],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PostCategoryDetailsDto": {
+        "required": ["id", "isActive"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PostCategorySwitchActivationDto": {
+        "required": ["id", "isActive"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PostsDetailsDto": {
+        "required": ["creationTime", "id", "isActive"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "arTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "enTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "arDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "enDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "postCategory": {
+            "$ref": "#/components/schemas/LiteEntityDto"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "creationTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PostsSwitchActivationDto": {
+        "required": ["id", "isActive"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReplyMessageInputDto": {
+        "required": ["messageId"],
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestNotificationInputDto": {
+        "required": ["type"],
+        "type": "object",
+        "properties": {
+          "relatedId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "enum": [1, 2, 3, 4, 5, 6, 7],
+            "type": "integer",
+            "description": "Type of Notification:\r\n1 - 7",
+            "format": "int32"
+          },
+          "userIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePostCategoryDto": {
+        "required": ["id"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePostsDto": {
+        "required": ["id", "postCategoryId"],
+        "type": "object",
+        "properties": {
+          "arTitle": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "enTitle": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "arDescription": {
+            "maxLength": 1500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "enDescription": {
+            "maxLength": 1500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "postCategoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValueLabelDto": {
+        "required": ["value"],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValueLabelDtoListResultDto": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValueLabelDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

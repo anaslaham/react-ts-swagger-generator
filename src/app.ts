@@ -20,14 +20,9 @@ addToConfig({
   swaggerSchema: schema,
   originalSchema: schema,
 });
-// const interfaceTemplate = getTemplate("interface");
-// const servicesTemplate = getTemplate("services");
-// const contextTemplate = getTemplate("context");
-// const providersTemplate = getTemplate("providers");
 const { info, paths, servers, components } = schema;
 const componentsMap = createComponentsMap(components);
 const schemasMap = filterComponentsMap(componentsMap, "schemas");
-
 const apiName: string = _.camelCase(info.title) ?? "api";
 schemasMap.forEach((schema) => {
   const content = interfaceTemplate({
@@ -57,6 +52,7 @@ createFile(
   `/index.ts`,
   format("export default {baseUrl:'' , headers :{}}", prettierConfig)
 );
+console.log(groupedRoutes.outOfModule);
 
 groupedRoutes.combined.forEach((route) => {
   const content = servicesTemplate(route);

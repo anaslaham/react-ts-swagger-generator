@@ -57,12 +57,12 @@ const getInternalSchemaType = (schema) => {
 
 const checkAndAddNull = (schema, value) => {
   const { nullable, type } = schema || {};
-  return nullable || type === "null" ? `${value} | null` : value;
+  return nullable || type === "null" ? `${value} ` : value;
 };
 
 export const getRefType = (property) => {
   const ref = property && property["$ref"];
-  return (ref && config.componentsMap[ref]) || null;
+  return (ref && config.componentsMap[ref]) |;
 };
 export const getType = (schema) => {
   if (!schema) return DEFAULT_PRIMITIVE_TYPE;
